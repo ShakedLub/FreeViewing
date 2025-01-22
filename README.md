@@ -6,7 +6,7 @@
 a. Locate the Raw Data folder inside FreeViewing\Exp3\
 b. Locate the ResultsStructs folder inside FreeViewing\Exp3\Analysis\AnalysisFolders\
 
-############# Runing the code: 
+############# Running the code: 
 All analyses were ran on Matlab 2018B, the CNN analysis was ran on Matlab 2023A.
 
 1. Experimental code:
@@ -35,11 +35,11 @@ Conditions for running the code:
 a. saveFlag: 0 do not save, 1 save
 b. experiment_number: '1' for experiment 1, '2' for experiment 2 (this number should be given as a char) 
 c. condition: 1 - main analysis 
-              2 - low level type 1: this control analysis is done becuase the low level type in the main 
+              2 - low level type 1: this control analysis is done because the low level type in the main 
               analysis is different than written in the pre-registration (see manuscript). In the main analysis it 
               is low level type 2 created using smiler package, in this analysis the low level type is 1, 
               created using the saliencytoolbox. 
-              3 - RttM check: in this control analysis participants with high objective awareness scorese are excluded 
+              3 - RttM check: in this control analysis participants with high objective awareness scores are excluded 
               to check if the results stem from RttM (see manuscript).
 
 
@@ -98,13 +98,13 @@ A. Run_CreateHighLevelMaps.m - creates high level maps that define the semantica
                                (high level regions) in the region analysis.
 
 C. Run_CreateLowLevelMaps2.m - creates low level maps type 2 that define the visually salient regions 
-                               (low level regions) in the region analyis. The maps are created based on
-                               Itti and Koch's salliency model from Smiler. These maps are used in the main
+                               (low level regions) in the region analysis. The maps are created based on
+                               Itti & Koch's saliency model from Smiler. These maps are used in the main
                                analysis.
 
 B. Run_CreateLowLevelMaps1.m - creates low level maps type 1 that define the visually salient regions 
-                               (low level regions) in the region analyis. The maps are created based on
-                               Itti and Koch's salliency model from saliencytoolbox.These maps are used in
+                               (low level regions) in the region analysis. The maps are created based on
+                               Itti & Koch's saliency model from saliencytoolbox.These maps are used in
                                low level type 1 analysis.
 
 ############# Data about packages and codes downloaded from the internet: 
@@ -115,14 +115,13 @@ code for creating a break in x axis in a plot for better visualization.
 Peter, Break X Axis . MATLAB Central File Exchange (2024). 
 https://www.mathworks.com/matlabcentral/fileexchange/42905-break-x-axis.
 
-
 #Itti&Koch_WalthersSaliencyToolbox_L
 Sailencytoolbox used to create low level regions for the region analysis in low level type 1 control analysis, based on Itti&Koch's saliency model. 
 Version 2.3 is used.
 D. Walther, C. Koch, Modeling attention to salient proto-objects. Neural Networks 19,  1395–1407 (2006).
 
 #myBinomTest
-code for caclculating a binomial test, used to test the accuracy in the objective awareness test with a binomial distribution.
+code for calculating a binomial test, used to test the accuracy in the objective awareness test with a binomial distribution.
 Matthew Nelson, myBinomTest(s,n,p,Sided) . MATLAB Central File Exchange (2022). https://www.mathworks.com/matlabcentral/fileexchange/24813-mybinomtest-s-n-p-sided.
 
 #RainCloudPlot
@@ -145,28 +144,28 @@ C. Wloka, T. Kunić, I. Kotseruba, R. Fahimi, N. Frosst, N. D. B. Bruce, J. K. T
 
 #TreeBH
 tree BH method for correcting for multiple comparisons in all the manuscript.
-This code is an inhouse code used in Mudrik's lab.
+This code is an in-house code used in Mudrik's lab.
 
 ############# Folders content:
 FreeViewing\Exp3\Analysis\AnalysisCode\ImageAnalysis- creates high level region and low level region maps for the region analysis
 FreeViewing\Exp3\Analysis\AnalysisCode\ResultsAnalysis\EyeTrackingAnalysis - calculates the object analysis, region analysis and emotional face attribute analysis
 FreeViewing\Exp3\Analysis\AnalysisCode\ResultsAnalysis\EyeTrackingAnalysis\PlotsBothExperiments- create plots or tree BH calculations for both experiments
-FreeViewing\Exp3\Analysis\AnalysisCode\ResultsAnalysis\CNNAnalysis - calcualtes the CNN analysis
+FreeViewing\Exp3\Analysis\AnalysisCode\ResultsAnalysis\CNNAnalysis - calculates the CNN analysis
 
-FreeViewing\Exp3\Analysis\AnalysisFolders\ResultsImages\FixationMapsRemoveCenterBias\Pilot1- Fixation map in each visibility contdition (U in the name for unconscious condtion, and C for conscious), for each image, from all participants who viewed this image, in experiment 1
-FreeViewing\Exp3\Analysis\AnalysisFolders\ResultsImages\FixationMapsRemoveCenterBias\Pilot2- Fixation map in each visibility contdition (U in the name for unconscious condtion, and C for conscious), for each image, from all participants who viewed this image, in experiment 2
+FreeViewing\Exp3\Analysis\AnalysisFolders\ResultsImages\FixationMapsRemoveCenterBias\Pilot1- Fixation map in each visibility condition (U in the name for unconscious condition, and C for conscious), for each image, from all participants who viewed this image, in experiment 1
+FreeViewing\Exp3\Analysis\AnalysisFolders\ResultsImages\FixationMapsRemoveCenterBias\Pilot2- Fixation map in each visibility condition (U in the name for unconscious condition, and C for conscious), for each image, from all participants who viewed this image, in experiment 2
 FreeViewing\Exp3\Analysis\AnalysisFolders\ResultsImages\HighLevelMaps - high level maps defining high level regions in region analysis
 FreeViewing\Exp3\Analysis\AnalysisFolders\ResultsImages\LowLevelMaps - low level maps defining low level regions in region analysis (main analysis)
 FreeViewing\Exp3\Analysis\AnalysisFolders\ResultsImages\SaliencyMaps - low level maps defining low level regions in region analysis (low level type 1, control analysis)
-FreeViewing\Exp3\Analysis\AnalysisFolders\ResultsImages\RegionsFixationMapsBothExperiments - Fixation map for each image in each visibility conditions in each experiment (in one figure) overlayed on region classification
+FreeViewing\Exp3\Analysis\AnalysisFolders\ResultsImages\RegionsFixationMapsBothExperiments - Fixation map for each image in each visibility conditions in each experiment (in one figure) overlaid on region classification
 
 FreeViewing\Exp3\Analysis\AnalysisFolders\ResultsStructs- tree BH data for each analysis condition: main, low level type 1 and RttM check.
-FreeViewing\Exp3\Analysis\AnalysisFolders\ResultsStructs\Pilot1_Final- experiment 1 main analysis resutls 
-FreeViewing\Exp3\Analysis\AnalysisFolders\ResultsStructs\Pilot2_Final- experiment 2 main analysis resutls 
-FreeViewing\Exp3\Analysis\AnalysisFolders\ResultsStructs\Pilot1_RttMCheck- experiment 1 RttM check analysis resutls 
-FreeViewing\Exp3\Analysis\AnalysisFolders\ResultsStructs\Pilot2_RttMCheck- experiment 2 RttM check analysis resutls 
-FreeViewing\Exp3\Analysis\AnalysisFolders\ResultsStructs\Pilot1_LowLevelType1- experiment 1 low level type 1, control analysis resutls 
-FreeViewing\Exp3\Analysis\AnalysisFolders\ResultsStructs\Pilot2_LowLevelType1- experiment 2 low level type 1, control analysis resutls 
+FreeViewing\Exp3\Analysis\AnalysisFolders\ResultsStructs\Pilot1_Final- experiment 1 main analysis results
+FreeViewing\Exp3\Analysis\AnalysisFolders\ResultsStructs\Pilot2_Final- experiment 2 main analysis results 
+FreeViewing\Exp3\Analysis\AnalysisFolders\ResultsStructs\Pilot1_RttMCheck- experiment 1 RttM check analysis results 
+FreeViewing\Exp3\Analysis\AnalysisFolders\ResultsStructs\Pilot2_RttMCheck- experiment 2 RttM check analysis results 
+FreeViewing\Exp3\Analysis\AnalysisFolders\ResultsStructs\Pilot1_LowLevelType1- experiment 1 low level type 1, control analysis results 
+FreeViewing\Exp3\Analysis\AnalysisFolders\ResultsStructs\Pilot2_LowLevelType1- experiment 2 low level type 1, control analysis results
 FreeViewing\Exp3\Analysis\AnalysisFolders\ResultsStructs\RSA\Pilot1_Final- CNN analysis results, main analysis, experiment 1
 FreeViewing\Exp3\Analysis\AnalysisFolders\ResultsStructs\RSA\Pilot2_Final- CNN analysis results, main analysis, experiment 2
 FreeViewing\Exp3\Analysis\AnalysisFolders\ResultsStructs\RSA\Pilot1&2_Final- CNN analysis results main analysis experiment 1&2
@@ -176,7 +175,7 @@ FreeViewing\Exp3\Analysis\AnalysisFolders\ResultsStructs\RSA\Pilot1&2_RttMCheck-
 
 FreeViewing\Exp3\Analysis\AnalysisFolders\Code\breakxaxis - code for creating a break in x axis in a plot for better visualization
 FreeViewing\Exp3\Analysis\AnalysisFolders\Code\Itti&Koch_WalthersSaliencyToolbox_L- Sailencytoolbox used to create low level regions for the region analysis in low level type 1 control analysis, based on Itti&Koch's saliency model. 
-FreeViewing\Exp3\Analysis\AnalysisFolders\Code\myBinomTest- code for caclculating a binomial test, used to test the accuracy in the objective awareness test with a binomial distribution.
+FreeViewing\Exp3\Analysis\AnalysisFolders\Code\myBinomTest- code for calculating a binomial test, used to test the accuracy in the objective awareness test with a binomial distribution.
 FreeViewing\Exp3\Analysis\AnalysisFolders\Code\RainCloudPlot- code for creating rain cloud plots
 FreeViewing\Exp3\Analysis\AnalysisFolders\Code\Smiler- toolbox used to create low level regions for the region analysis in the main analysis, based on Itti&Koch's saliency model. 
 FreeViewing\Exp3\Analysis\AnalysisFolders\Code\TreeBH- tree BH method for correcting for multiple comparisons in all the manuscript.
@@ -202,7 +201,7 @@ FreeViewing\Exp2\Raw Data\EyeTracker\Extracted files\Pilot2\DomLeft - parsed dat
 a. Locate the Raw Data folder inside FreeViewing\Exp2\
 b. Locate the ResultsStructs folder inside FreeViewing\Exp2\Analysis\AnalysisFolders\
 
-############# Runing the code:
+############# Running the code:
 1. Experimental code:
 The experimental code is in:
 FreeViewing\Exp2\Experiment\RUN_ME\Code
