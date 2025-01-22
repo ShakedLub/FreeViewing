@@ -88,6 +88,7 @@ Run the code by running the script: Run_AnalyzeBehavior.m in the command window
 Conditions for running the code:
 a. saveFlag: 0 do not save, 1 save
 b. experiment_number: '1' for experiment 1, '2' for experiment 2 (this number should be given as a char)
+* Inside the folder BayesianAnalysis are calculations in JASP of the Bayesian analysis 
 
 #Image analysis
 This code creates high level region and low level region maps for the region analysis for all images.
@@ -151,6 +152,8 @@ FreeViewing\Exp3\Analysis\AnalysisCode\ImageAnalysis- creates high level region 
 FreeViewing\Exp3\Analysis\AnalysisCode\ResultsAnalysis\EyeTrackingAnalysis - calculates the object analysis, region analysis and emotional face attribute analysis
 FreeViewing\Exp3\Analysis\AnalysisCode\ResultsAnalysis\EyeTrackingAnalysis\PlotsBothExperiments- create plots or tree BH calculations for both experiments
 FreeViewing\Exp3\Analysis\AnalysisCode\ResultsAnalysis\CNNAnalysis - calculates the CNN analysis
+FreeViewing\Exp3\Analysis\AnalysisCode\ResultsAnalysis\BehavioralAnalysis- calcualted the awarness analysis
+FreeViewing\Exp3\Analysis\AnalysisCode\ResultsAnalysis\BehavioralAnalysis\BayesianAnalysis- calculation in JASP of the Bayesian analysis 
 
 FreeViewing\Exp3\Analysis\AnalysisFolders\ResultsImages\FixationMapsRemoveCenterBias\Pilot1- Fixation map in each visibility condition (U in the name for unconscious condition, and C for conscious), for each image, from all participants who viewed this image, in experiment 1
 FreeViewing\Exp3\Analysis\AnalysisFolders\ResultsImages\FixationMapsRemoveCenterBias\Pilot2- Fixation map in each visibility condition (U in the name for unconscious condition, and C for conscious), for each image, from all participants who viewed this image, in experiment 2
@@ -193,7 +196,6 @@ FreeViewing\Exp2\Raw Data\EyeTracker\Extracted files\Pilot1\DomLeft - parsed dat
 FreeViewing\Exp3\Raw Data\EyeTracker\Extracted files\Pilot2 - mat file for each participant with eye tracking data, eta file for each participant used for the analyzer that parsed the data to fixations and saccades (experiment 2) 
 FreeViewing\Exp2\Raw Data\EyeTracker\Extracted files\Pilot2\DomRight - parsed data to fixations and saccades for participants with right dominant eye (experiment 2) 
 FreeViewing\Exp2\Raw Data\EyeTracker\Extracted files\Pilot2\DomLeft - parsed data to fixations and saccades for participants with left dominant eye (experiment 2)  
-
 
 ############################ Exp 2: The non-Mondrian experiment:
 
