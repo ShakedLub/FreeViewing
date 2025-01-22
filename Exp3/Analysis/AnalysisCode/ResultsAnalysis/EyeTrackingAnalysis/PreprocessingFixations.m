@@ -1,0 +1,51 @@
+function FixationsAllSubjProcessed=PreprocessingFixations(fixations,Paths,Param)
+%delete from fixations images that don't have data from any subject
+indDel=[];
+for ii=1:size(fixations,2) %images
+    if isempty(fixations(ii).condition(1).subject) && isempty(fixations(ii).condition(2).subject)
+        indDel=[indDel,ii];
+    end
+end
+if ~isempty(indDel)
+    fixations(indDel)=[];
+end
+
+for ii=1:size(fixations,2) %images
+    for kk=1:size(fixations(ii).condition,2) %conditions
+        numFixExcludeImage=0;
+        if kk==1
+            EXP_COND='U';
+        elseif kk==2
+            EXP_COND='C';
+        end
+        excludeTrial=[];
+        for jj=1:size(fixations(ii).condition(kk).subject,2) %subjects
+            SUBJ_NUM=fixations(ii).condition(kk).subject(jj).subjNum;
+            fixations(ii).condition(kk).subject(jj).processed=excludeFixSacc(fixations(ii).condition(kk).subject(jj),Paths,SUBJ_NUM,EXP_COND,Param);
+            numFixExcludeImage=numFixExcludeImage+fixations(ii).condition(kk).subject(jj).processed.numFixExclude;
+            if fixations(ii).condition(kk).subject(jj).processed.includeSubj==0
+                excludeTrial=[excludeTrial,jj];
+            end
+        end
+        if ~isempty(excludeTrial)
+            fixations(ii).condition(kk).subject(excludeTrial)=[];
+        end
+        fixations(ii).condition(kk).numFixExcludeImage=numFixExcludeImage;
+        fixations(ii).condition(kk).numTrialsExcludeNoFixLeft=length(excludeTrial);
+    end 
+end
+
+%delete from fixations images that don't have data from both visibility
+%conditions, if all subj were deleted beucase all fixations were excluded
+indDel=[];
+for ii=1:size(fixations,2) %images
+    if isempty(fixations(ii).condition(1).subject) || isempty(fixations(ii).condition(2).subject)
+        indDel=[indDel,ii];
+    end
+end
+if ~isempty(indDel)
+    fixations(indDel)=[];
+end
+
+FixationsAllSubjProcessed=fixations;
+end
