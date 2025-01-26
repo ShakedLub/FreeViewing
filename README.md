@@ -2,9 +2,9 @@
 
 ############################ Exp 3: Main experiment, pilot 1 is experiment 1, pilot 2 is experiment 2
 
-############# Before running, download the following Exp3 folders from _____ and unzip them:
-a. Raw Data folder inside FreeViewing\Exp3\
-b. ResultsStructs folder inside FreeViewing\Exp3\Analysis\AnalysisFolders\
+############# Before running, download the following Exp3 folders from OSF (https://osf.io/b5ntv/):
+a. Locate the Raw Data folder inside FreeViewing\Exp3\
+b. Locate the ResultsStructs folder inside FreeViewing\Exp3\Analysis\AnalysisFolders\
 
 ############# Running the code: 
 All analyses were run on Matlab 2018B, except for the CNN analysis which was conducted on Matlab 2023A.
@@ -213,7 +213,7 @@ FreeViewing\Exp2\Raw Data\EyeTracker\Extracted files\Pilot2\DomLeft - parsed dat
 
 ############################ Exp 2: The non-Mondrian experiment:
 
-############# Before running download the following Exp2 folders from _____ and unzip them:
+############# Before running download the following Exp2 folders from OSF (https://osf.io/b5ntv/):
 a. Locate the Raw Data folder inside FreeViewing\Exp2\
 b. Locate the ResultsStructs folder inside FreeViewing\Exp2\Analysis\AnalysisFolders\
 
