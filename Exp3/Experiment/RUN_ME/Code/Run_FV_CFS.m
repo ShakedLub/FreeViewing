@@ -75,7 +75,7 @@ CHECK_TRIGGERS=[];
 
 %experiment name
 EXPERIMENT_NAME= 'exp';
-EXPERIMENT_NUMBER=400;
+EXPERIMENT_NUMBER=500;
 
 %folder constants
 CURRENT_FOLDER = cd;
@@ -476,7 +476,8 @@ gui_builder.show();
         
         %Subject Parameters
         if DEBUG_CODE==1 || DEBUG==1
-            SUBJECT_NUMBER=size(AllSubj.ExpDesignAllSubjects.RandTrialsOrder,2);
+            SUBJECT_NUMBER=26;
+            %SUBJECT_NUMBER=size(AllSubj.ExpDesignAllSubjects.RandTrialsOrder,2);
             EXP_CONDITION=1;
             SUBJECT_AGE=23;
             SUBJECT_GENDER='F';
