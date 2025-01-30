@@ -159,6 +159,7 @@ This code is an in-house code used in Mudrik's lab.
 FreeViewing\Exp3\Analysis\AnalysisCode\ImageAnalysis- creates the high level region and low level region maps for the region analysis
 FreeViewing\Exp3\Analysis\AnalysisCode\ResultsAnalysis\EyeTrackingAnalysis - calculates the object analysis, region analysis and emotional face attribute analysis
 FreeViewing\Exp3\Analysis\AnalysisCode\ResultsAnalysis\EyeTrackingAnalysis\PlotsBothExperiments- creates the plots or tree BH calculations for both experiments
+FreeViewing\Exp3\Analysis\AnalysisCode\ResultsAnalysis\EyeTrackingAnalysis\PlotsBothExperiments\Figures- final figures used in manuscript
 FreeViewing\Exp3\Analysis\AnalysisCode\ResultsAnalysis\CNNAnalysis - calculates the CNN analysis
 FreeViewing\Exp3\Analysis\AnalysisCode\ResultsAnalysis\BehavioralAnalysis- calculates the awareness analysis
 FreeViewing\Exp3\Analysis\AnalysisCode\ResultsAnalysis\BehavioralAnalysis\BayesianAnalysis- calculation in JASP of the Bayesian analysis 
