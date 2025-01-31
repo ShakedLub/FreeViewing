@@ -1,4 +1,5 @@
 # FreeViewing
+Preprint: https://doi.org/10.31234/osf.io/x8eaz
 
 ############################ Exp 3: Main experiment, pilot 1 is experiment 1, pilot 2 is experiment 2
 
