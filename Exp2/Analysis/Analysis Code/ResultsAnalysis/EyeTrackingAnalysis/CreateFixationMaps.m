@@ -3,8 +3,8 @@ function FixMaps=CreateFixationMaps(fixations,Paths,Param)
 %Le Meur, O., & Baccino, T. (2013). Methods for comparing scanpaths and saliency maps: strengths and weaknesses. Behavior research methods, 45(1), 251-266.?
 %chapter: from a discrete fixation map to a continous saliency map
 
-%subjects who viewed the image from 71 cm their fixations are created on
-%maps the size they viewed the place holder on the screen and than this
+%For subjects who viewed the image with distance defined as 71 cm, their fixations are created on
+%maps the size they viewed the place holder on the screen and then this
 %image is resized to the correct size and the fixation location is found
 
 %Parameters

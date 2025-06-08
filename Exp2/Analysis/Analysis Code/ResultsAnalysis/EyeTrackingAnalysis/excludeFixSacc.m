@@ -1,4 +1,4 @@
-function Results=excludeFixSacc(FixData,Paths,SUBJ_NUM,Param)
+function Results=excludeFixSacc(FixData,RECT,Param)
 plotFlag=0;
 
 %% decide which variable is the horizontal and which the vertical
@@ -11,18 +11,16 @@ fix_h=round(FixData.fix_y);  %vertical/ height
 gazeW=round(rawGazeW);
 gazeH=round(rawGazeH);
 
-non_nan_times=FixData.non_nan_times;
-%If there is a saccade in some delta around a blink (delta=10msec) mark it
-%as part of the blink
-non_nan_times=checkNoSaccadesNearBlinks(FixData,non_nan_times,Param);
+if ~Param.RemoveTrialsWithBlinks
+    non_nan_times=FixData.non_nan_times;
+    
+    %If there is a saccade in some delta around a blink (delta=10msec) mark it
+    %as part of the blink
+    non_nan_times=checkNoSaccadesNearBlinks(FixData,non_nan_times,Param);
+end
 
-%% Scaling the images 
-%load from pile up display area rect
-pileupfileName=['pileup',num2str(SUBJ_NUM),'.mat'];
-load([Paths.PileupFolder,'\',pileupfileName],'resources')
-
+%% Scaling the images
 %Scaling the images so that (widthmin,heightmin) is now (1,1)
-RECT=resources.Images.dstRectDom;
 rect=[RECT(1),RECT(2),RECT(3)-RECT(1),RECT(4)-RECT(2)];%rect=[widthmin heightmin width height]
 
 fix_h=round(fix_h)-round(rect(2))+1;
@@ -68,10 +66,12 @@ for ii=1:length(fix_h) %fixations
     end
     
     %find fixations that are near blinks or include blinks
-    Fix_NNT=non_nan_times(max(1,(fix_start-1)):min((fix_end+1),length(non_nan_times)));
-    if any(Fix_NNT==0)
-        indFixExclude=[indFixExclude,ii];
-        indFixExclude=unique(indFixExclude);
+    if ~Param.RemoveTrialsWithBlinks
+        Fix_NNT=non_nan_times(max(1,(fix_start-1)):min((fix_end+1),length(non_nan_times)));
+        if any(Fix_NNT==0)
+            indFixExclude=[indFixExclude,ii];
+            indFixExclude=unique(indFixExclude);
+        end
     end
 end
 
@@ -115,10 +115,12 @@ for ii=1:length(FixData.sacc_onsets) %saccades
     end
     
     %find saccades that are near blinks or include blinks
-    sacc_NNT=non_nan_times(max(1,(sacc_start-1)):min((sacc_end+1),length(non_nan_times)));
-    if any(sacc_NNT==0)
-        indSaccExclude=[indSaccExclude,ii];
-        indSaccExclude=unique(indSaccExclude);
+    if ~Param.RemoveTrialsWithBlinks
+        sacc_NNT=non_nan_times(max(1,(sacc_start-1)):min((sacc_end+1),length(non_nan_times)));
+        if any(sacc_NNT==0)
+            indSaccExclude=[indSaccExclude,ii];
+            indSaccExclude=unique(indSaccExclude);
+        end
     end
 end
 

@@ -1,4 +1,4 @@
-function FixationsPerImageProcessed=PreprocessingFixations(fixations,Paths,Param)
+function FixationsPerImageProcessed=PreprocessingFixations(fixations,subjNumber,Paths,Param)
 %delete from fixations images that don't have data from any subject
 indDel=[];
 for ii=1:size(fixations,2) %images
@@ -10,12 +10,23 @@ if ~isempty(indDel)
     fixations(indDel)=[];
 end
 
+%create RectCell for all participants
+for ii=1:length(subjNumber)
+    SUBJ_NUM=subjNumber(ii);
+    pileupfileName=['pileup',num2str(SUBJ_NUM),'.mat'];
+    load([Paths.PileupFolder,'\',pileupfileName],'resources')
+    RectCell{ii}=resources.Images.dstRectDom;
+    clear resources
+end
+
 for ii=1:size(fixations,2) %images
     numFixExcludeImage=0;
     excludeTrial=[];
     for jj=1:size(fixations(ii).subject,2) %subjects
         SUBJ_NUM=fixations(ii).subject(jj).subjNum;
-        fixations(ii).subject(jj).processed=excludeFixSacc(fixations(ii).subject(jj),Paths,SUBJ_NUM,Param);
+        ind_sub=find(subjNumber==SUBJ_NUM);
+        RECT=RectCell{ind_sub};
+        fixations(ii).subject(jj).processed=excludeFixSacc(fixations(ii).subject(jj),RECT,Param);
         numFixExcludeImage=numFixExcludeImage+fixations(ii).subject(jj).processed.numFixExclude;
         if fixations(ii).subject(jj).processed.includeSubj==0
             excludeTrial=[excludeTrial,jj];

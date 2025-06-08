@@ -4,7 +4,7 @@ function FixMaps=CreateFixationMaps(fixations,Paths,Param)
 %chapter: from a discrete fixation map to a continous saliency map
 
 %Parameters
-saveImages=0;
+saveImages=1;
 plotFlag=0;
 sigma=Param.pixels_per_vdegree/2;
 

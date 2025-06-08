@@ -3,14 +3,24 @@ clear
 clc
 
 %% condition
-saveFlag=0;
+condition=2; %condition 1: main analysis
+%condition 2: peregistration control
+saveFlag=1;
 
 %% Parameters
 %General parameters
 Param.RemoveCenterBias=0;
 Param.PILOT_NUM='3';
 
+%exclude trials with blinks
+if condition == 2
+    Param.RemoveTrialsWithBlinks=1;
+else
+    Param.RemoveTrialsWithBlinks=0;
+end
+
 %More parameters
+Param.pixels_per_vdegree=46.1388; %calculated based on screen width 53.2 cm
 Param.EyeTrackerFrameRate=1000;
 Param.MinTrials=10;
 Param.minSubjPerImageNSSSimilarity=3;
@@ -42,12 +52,13 @@ cd(Paths.EyeTrackingAnalysisFolder)
 %results paths
 cd ..\..\..\
 Paths.FoldersPath=[pwd,'\AnalysisFolders'];
-if Param.RemoveCenterBias==1
-    Paths.FixationMapsPath=[Paths.FoldersPath,'\ResultsImages\FixationMapsRemoveCenterBias'];
-else
+if condition == 1
     Paths.FixationMapsPath=[Paths.FoldersPath,'\ResultsImages\FixationMaps'];
+    Paths.ResultsStructsPath=[Paths.FoldersPath,'\ResultsStructs\MainAnalysis'];
+elseif condition == 2
+    Paths.FixationMapsPath=[Paths.FoldersPath,'\ResultsImages\FixationMapsNoBlinks'];
+    Paths.ResultsStructsPath=[Paths.FoldersPath,'\ResultsStructs\PreregistrationControlNoBlinks'];
 end
-Paths.ResultsStructsPath=[Paths.FoldersPath,'\ResultsStructs'];
 cd(Paths.EyeTrackingAnalysisFolder)
 
 %more paths
@@ -111,6 +122,13 @@ for ii=1:length(EXPDATA_ALL) %subjects
     %in exp 3
     EXPDATA_ALL{ii}=removeTrialsWithoutOSIEImages(EXPDATA_ALL{ii},Paths);
 
+    %remove trials with blinks
+    if Param.RemoveTrialsWithBlinks
+        EXPDATA_ALL{ii}=removeTrialsWithBlinksSegmented(EXPDATA_ALL{ii});
+    else
+        EXPDATA_ALL{ii}.TrialsRemoved.TrialsWithBlinks=0;
+    end
+        
     %remove  for specific subejcts specific trials that were problematic in
     %recording from various reasons 
     FlagSpecificTrials=0;
@@ -154,8 +172,7 @@ Results_Memory=checkMemoryPerformance(EXPDATA_ALL,Paths);
 FixationsPerImage=arrangeFixationsPerImage(EXPDATA_ALL,Paths);
 
 %preprocess fixations
-Param.pixels_per_vdegree=EXPDATA_ALL{end}.info.lab_setup.pixels_per_vdegree;
-FixationsPerImageProcessed=PreprocessingFixations(FixationsPerImage,Paths,Param);
+FixationsPerImageProcessed=PreprocessingFixations(FixationsPerImage,subjNumber,Paths,Param);
 
 % summarize number of subejcts per image
 SummarySubjPerImage=calcSubjPerImage(FixationsPerImageProcessed,Paths);
@@ -174,8 +191,8 @@ for ii=1:size(Fixations_PerSubject,2) %suebjcts
 end
 
 %% create fixation maps
-%subjects who viewed the image from 71 cm their fixations are created on
-%maps the size they viewed the place holder on the screen and than this
+%For subjects who viewed the image with distance defined as 71 cm, their fixations are created on
+%maps the size they viewed the place holder on the screen and then this
 %image is resized to the correct size and the fixation location is found
 FixMaps=CreateFixationMaps(FixationsPerImageProcessed,Paths,Param);
 
@@ -190,7 +207,6 @@ if saveFlag
     if Param.RemoveCenterBias
         save([Paths.ResultsStructsPath,'\','Param_RemoveCenterBias.mat'],'Param')
         save([Paths.ResultsStructsPath,'\','TrialsRemoved_RemoveCenterBias.mat'],'TrialsRemoved')
-        save([Paths.ResultsStructsPath,'\','goodTrialsAfterFixSaccExclusion_RemoveCenterBias.mat'],'goodTrialsAfterFixSaccExclusion')
         save([Paths.ResultsStructsPath,'\','subjNumber_RemoveCenterBias.mat'],'subjNumber')
         save([Paths.ResultsStructsPath,'\','SummarySubjPerImage_RemoveCenterBias.mat'],'SummarySubjPerImage')
         save([Paths.ResultsStructsPath,'\','Results_Memory_RemoveCenterBias.mat'],'Results_Memory')
@@ -200,7 +216,6 @@ if saveFlag
     else
         save([Paths.ResultsStructsPath,'\','Param.mat'],'Param')
         save([Paths.ResultsStructsPath,'\','TrialsRemoved.mat'],'TrialsRemoved')
-        save([Paths.ResultsStructsPath,'\','goodTrialsAfterFixSaccExclusion.mat'],'goodTrialsAfterFixSaccExclusion')
         save([Paths.ResultsStructsPath,'\','subjNumber.mat'],'subjNumber')
         save([Paths.ResultsStructsPath,'\','SummarySubjPerImage.mat'],'SummarySubjPerImage')
         save([Paths.ResultsStructsPath,'\','Results_Memory.mat'],'Results_Memory')

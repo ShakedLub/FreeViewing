@@ -5,11 +5,12 @@ for ii=1:length(EXPDATA_ALL) %subjects
     TrialsRemoved.data(ii).TrialsAfterRemoval=size(EXPDATA_ALL{ii}.Trials_Analysis,2);
     TrialsRemoved.data(ii).PercentTrialsRemoved=1-(TrialsRemoved.data(ii).TrialsAfterRemoval/TrialsRemoved.data(ii).AllTrials);
     
+    TrialsRemoved.data(ii).TrialsWithBlinks=EXPDATA_ALL{ii}.TrialsRemoved.TrialsWithBlinks;
     TrialsRemoved.data(ii).SpecificTrials=EXPDATA_ALL{ii}.TrialsRemoved.SpecificTrials;
     TrialsRemoved.data(ii).OneTrialBeforeCalibration=EXPDATA_ALL{ii}.TrialsRemoved.OneTrialBeforeCalibration;
     TrialsRemoved.data(ii).NotOSIEImages=EXPDATA_ALL{ii}.TrialsRemoved.NotOSIEImages;
     
-    TrialsRemoved.data(ii).AllTechnical=TrialsRemoved.data(ii).SpecificTrials+TrialsRemoved.data(ii).OneTrialBeforeCalibration;
+    TrialsRemoved.data(ii).AllTechnical=TrialsRemoved.data(ii).SpecificTrials+TrialsRemoved.data(ii).OneTrialBeforeCalibration+TrialsRemoved.data(ii).TrialsWithBlinks;
     TrialsRemoved.data(ii).PercentRemovedTechnical=TrialsRemoved.data(ii).AllTechnical/TrialsRemoved.data(ii).AllTrials;
 end
 

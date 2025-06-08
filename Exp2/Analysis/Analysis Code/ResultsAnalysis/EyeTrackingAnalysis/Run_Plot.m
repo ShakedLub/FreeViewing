@@ -4,13 +4,13 @@ clear
 
 %% Parameters
 seed=1;
-saveFlag=0;
+saveFlag=1;
 
 %% Paths
 codePath=cd;
 cd ..\..\..\
 foldersPath=[pwd,'\AnalysisFolders'];
-dataPath=[foldersPath,'\ResultsStructs'];
+dataPath=[foldersPath,'\ResultsStructs\MainAnalysis'];
 cd(codePath)
 
 cd ..\..\..\..\..\

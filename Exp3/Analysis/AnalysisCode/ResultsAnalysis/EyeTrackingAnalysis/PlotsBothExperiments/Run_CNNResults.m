@@ -3,8 +3,8 @@ clc
 close all
 
 %% Paramaters
-AnalysisType=1; %1 main, 3 RttM check
-saveFlag=0; %1 save, 0 do not save
+AnalysisType=3; %1 main, 3 RttM check
+saveFlag=1; %1 save, 0 do not save
 
 %% paths
 codePath=cd;

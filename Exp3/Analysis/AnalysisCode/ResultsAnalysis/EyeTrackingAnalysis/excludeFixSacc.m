@@ -1,4 +1,4 @@
-function Results=excludeFixSacc(FixData,Paths,SUBJ_NUM,EXP_COND,Param)
+function Results=excludeFixSacc(FixData,RECT,Param)
 plotFlag=0;
 
 %% decide which variable is the horizontal and which the vertical
@@ -11,18 +11,15 @@ fix_h=round(FixData.fix_y);  %vertical/ height
 gazeW=round(rawGazeW);
 gazeH=round(rawGazeH);
 
-non_nan_times=FixData.non_nan_times;
-%If there is a saccade in some delta around a blink (delta=10msec) mark it
-%as part of the blink
-non_nan_times=checkNoSaccadesNearBlinks(FixData,non_nan_times,Param);
+if ~Param.RemoveTrialsWithBlinks
+    non_nan_times=FixData.non_nan_times;
+    %If there is a saccade in some delta around a blink (delta=10msec) mark it
+    %as part of the blink
+    non_nan_times=checkNoSaccadesNearBlinks(FixData,non_nan_times,Param);
+end
 
 %% Scaling the images 
-%load from pile up display area rect
-pileupfileName=['pileup_',EXP_COND,'_',num2str(SUBJ_NUM),'.mat'];
-load([Paths.PileupFolder,'\',pileupfileName],'resources')
-
 %Scaling the images so that (widthmin,heightmin) is now (1,1)
-RECT=resources.Images.dstRectDom;
 rect=[RECT(1),RECT(2),RECT(3)-RECT(1),RECT(4)-RECT(2)];%rect=[widthmin heightmin width height]
 
 fix_h=round(fix_h)-round(rect(2))+1;
@@ -68,10 +65,12 @@ for ii=1:length(fix_h) %fixations
     end
     
     %find fixations that are near blinks or include blinks
-    Fix_NNT=non_nan_times(max(1,(fix_start-1)):min((fix_end+1),length(non_nan_times)));
-    if any(Fix_NNT==0)
-        indFixExclude=[indFixExclude,ii];
-        indFixExclude=unique(indFixExclude);
+    if ~Param.RemoveTrialsWithBlinks
+        Fix_NNT=non_nan_times(max(1,(fix_start-1)):min((fix_end+1),length(non_nan_times)));
+        if any(Fix_NNT==0)
+            indFixExclude=[indFixExclude,ii];
+            indFixExclude=unique(indFixExclude);
+        end
     end
 end
 
@@ -100,12 +99,49 @@ fix_h_final=fix_h;
 fix_w_final=fix_w;
 fix_duration_final=FixData.fix_duration;
 fix_onsets_final=FixData.fix_onsets;
-
+ind_fix=1:length(fix_h);
 if ~isempty(indFixExclude)
     fix_h_final(indFixExclude)=[];
     fix_w_final(indFixExclude)=[];
     fix_duration_final(indFixExclude)=[];
     fix_onsets_final(indFixExclude)=[];
+    ind_fix(indFixExclude)=[];
+end
+
+%When trials with blinks are excluded:
+%if a fixation outside the time zone is included make sure it doesn't include a blink
+%%%%%% First fixation included
+if Param.AnalysisTimeLimitFlag && Param.RemoveTrialsWithBlinks
+    if ~isempty(fix_onsets_final) && fix_onsets_final(1)<Param.AnalysisMinTimeLimitFrames
+        non_nan_times_vec=FixData.non_nan_times(fix_onsets_final(1):(fix_onsets_final(1)+fix_duration_final(1)));
+        if ~isempty(find(non_nan_times_vec==0))
+            indFixExclude=[ind_fix(1),indFixExclude];
+            indFixExclude=unique(indFixExclude);
+            
+            fix_h_final(1)=[];
+            fix_w_final(1)=[];
+            fix_duration_final(1)=[];
+            fix_onsets_final(1)=[];
+            ind_fix(1)=[];
+        end
+    end
+end
+
+%%%%%% Last fixation included
+if Param.AnalysisTimeLimitFlag && Param.RemoveTrialsWithBlinks  
+    if ~isempty(fix_onsets_final) && (fix_onsets_final(end)+fix_duration_final(end)) > Param.AnalysisMaxTimeLimitFrames
+        non_nan_times_vec=FixData.non_nan_times(fix_onsets_final(end):(fix_onsets_final(end)+fix_duration_final(end)));
+        if ~isempty(find(non_nan_times_vec==0))
+            indFixExclude=[indFixExclude,ind_fix(end)];
+            indFixExclude=unique(indFixExclude);
+            
+            fix_h_final(end)=[];
+            fix_w_final(end)=[];
+            fix_duration_final(end)=[];
+            fix_onsets_final(end)=[];
+            ind_fix(end)=[];
+        end
+    end
 end
 
 numFixExclude=length(indFixExclude);
@@ -131,10 +167,12 @@ for ii=1:length(FixData.sacc_onsets)
     end
     
     %find saccades that are near blinks or include blinks
-    sacc_NNT=non_nan_times(max(1,(sacc_start-1)):min((sacc_end+1),length(non_nan_times)));
-    if any(sacc_NNT==0)
-        indSaccExclude=[indSaccExclude,ii];
-        indSaccExclude=unique(indSaccExclude);
+    if ~Param.RemoveTrialsWithBlinks
+        sacc_NNT=non_nan_times(max(1,(sacc_start-1)):min((sacc_end+1),length(non_nan_times)));
+        if any(sacc_NNT==0)
+            indSaccExclude=[indSaccExclude,ii];
+            indSaccExclude=unique(indSaccExclude);
+        end
     end
 end
 
@@ -160,6 +198,22 @@ if ~isempty(indSaccExclude)
     sacc_amp_final(indSaccExclude)=[];
     sacc_vel_final(indSaccExclude)=[];
     sacc_onsets_final(indSaccExclude)=[];
+end
+
+%When trials with blinks are excluded:
+%if a saccade outside the time zone is included make sure it doesn't
+%include a blink
+%%%%%% Last saccade
+if Param.AnalysisTimeLimitFlag && Param.RemoveTrialsWithBlinks 
+    if ~isempty(sacc_onsets_final) && (sacc_onsets_final(end)+sacc_duration_final(end)) > Param.AnalysisMaxTimeLimitFrames
+        non_nan_times_vec=FixData.non_nan_times(sacc_onsets_final(end):(sacc_onsets_final(end)+sacc_duration_final(end)));
+        if ~isempty(find(non_nan_times_vec==0))
+            sacc_duration_final(end)=[];
+            sacc_amp_final(end)=[];
+            sacc_vel_final(end)=[];
+            sacc_onsets_final(end)=[];
+        end
+    end
 end
 
 %% Update data

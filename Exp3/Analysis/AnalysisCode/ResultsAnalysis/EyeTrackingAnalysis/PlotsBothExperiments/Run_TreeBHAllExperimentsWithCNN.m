@@ -3,7 +3,7 @@ clc
 close all
 
 %% Paramaters
-AnalysisType=1; %1 main, 2 low level type 1, 3 RttM check
+AnalysisType=4; %1 main, 2 preregistration control, 3 RttM check, 4 permutation control
 saveFlag=0; %1 save, 0 do not save
 
 ParamTree.plot_tree=1;
@@ -20,16 +20,18 @@ foldersPath=[pwd,'\AnalysisFolders'];
 dataPath=[foldersPath,'\ResultsStructs'];
 pathTree=[foldersPath,'\Code\TreeBH'];
 cd(codePath)
-
-if AnalysisType == 2
-    path1=[dataPath,'\Pilot1_LowLevelType1'];
-    path2=[dataPath,'\Pilot2_LowLevelType1'];
-elseif AnalysisType == 1
+if AnalysisType == 1
     path1=[dataPath,'\Pilot1_Final'];
     path2=[dataPath,'\Pilot2_Final'];
+elseif AnalysisType == 2
+    path1=[dataPath,'\Pilot1_PreregistrationCheck'];
+    path2=[dataPath,'\Pilot2_PreregistrationCheck'];
 elseif AnalysisType == 3
     path1=[dataPath,'\Pilot1_RttMCheck'];
     path2=[dataPath,'\Pilot2_RttMCheck'];
+elseif AnalysisType == 4
+    path1=[dataPath,'\Pilot1_PermutationCheck'];
+    path2=[dataPath,'\Pilot2_PermutationCheck'];
 end
 pathSaveResults=dataPath;
 
@@ -40,11 +42,6 @@ clear RegionsSummary
 load([path2,'\','RegionsSummary_RemoveCenterBias.mat']);
 RegionsResults2=RegionsSummary;
 clear RegionsSummary
-
-if AnalysisType == 2
-    path1=[dataPath,'\Pilot1_Final'];
-    path2=[dataPath,'\Pilot2_Final'];
-end
 
 load([path1,'\','ObjectsSummary_RemoveCenterBias.mat']);
 ObjectsResults1=ObjectsSummary;
@@ -58,14 +55,14 @@ load([path2,'\','AttributesSummary_RemoveCenterBias.mat']);
 AttributesResults2=AttributesSummary;
 clear AttributesSummary ObjectsSummary
 
-if AnalysisType == 1 || AnalysisType == 2
-    path1=[dataPath,'\RSA\Pilot1_Final'];
-    path2=[dataPath,'\RSA\Pilot2_Final'];
-    path12=[dataPath,'\RSA\Pilot1&2_Final'];
-elseif AnalysisType == 3
+if AnalysisType == 3
     path1=[dataPath,'\RSA\Pilot1_RttMCheck'];
     path2=[dataPath,'\RSA\Pilot2_RttMCheck'];
     path12=[dataPath,'\RSA\Pilot1&2_RttMCheck'];
+else
+    path1=[dataPath,'\RSA\Pilot1_Final'];
+    path2=[dataPath,'\RSA\Pilot2_Final'];
+    path12=[dataPath,'\RSA\Pilot1&2_Final'];
 end
 load([path1,'\','Results_RemoveCenterBias.mat']);
 CNNResults1=Results;
@@ -132,11 +129,14 @@ if saveFlag
         save([pathSaveResults,'\BigTreeBH.mat'],'G_output','G_plot_handle')
         writetable(TableCNN,'CNNPvalues.csv')
     elseif AnalysisType==2
-        save([pathSaveResults,'\BigTreeBH_LowLevelType1.mat'],'G_output','G_plot_handle')
-        writetable(TableCNN,'CNNPvalues_LowLevelType1.csv')
+        save([pathSaveResults,'\BigTreeBH_PreregCheck.mat'],'G_output','G_plot_handle')
+        writetable(TableCNN,'CNNPvalues_PreregCheck.csv')
     elseif AnalysisType==3
         save([pathSaveResults,'\BigTreeBH_RttMCheck.mat'],'G_output','G_plot_handle')
         writetable(TableCNN,'CNNPvalues_RttMCheck.csv')
+    elseif AnalysisType==4
+        save([pathSaveResults,'\BigTreeBH_PermutationCheck.mat'],'G_output','G_plot_handle')
+        writetable(TableCNN,'CNNPvalues_PermutationCheck.csv')
     end
 end
 

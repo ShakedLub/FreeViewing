@@ -23,25 +23,35 @@ for ii=1:length(indLabels)
     dataErr(3,ii)=dataPAS2(indLabels(ii)).stdErrCount(1); %U exp 2
     dataErr(4,ii)=dataPAS2(indLabels(ii)).stdErrCount(2);  %C exp 2
     
-
     dataPoints{1,ii}=dataPAS1(indLabels(ii)).countPAS(:,1);%U exp 1
     dataPoints{2,ii}=dataPAS1(indLabels(ii)).countPAS(:,2);%C exp 1
     dataPoints{3,ii}=dataPAS2(indLabels(ii)).countPAS(:,1);%U exp 2
     dataPoints{4,ii}=dataPAS2(indLabels(ii)).countPAS(:,2);%C exp 2
 end
 cd(wd)
-bh=ErrorBarOnGroupedBarsWithScatter(data,dataErr,dataPoints);
- 
+colors(1,:)=cb(5, :); %blue
+colors(2,:) = cb(1, :); %green 
+colors(3,:) =cb(3, :) ; %purple
+colors(4,:) = cb(10, :); %purple
+bh=ErrorBarOnGroupedBarsWithScatter(data,dataErr,dataPoints,colors);
+
+lgd=legend(labels);
+%lgd.Location='best';
+lgd.FontSize=18;
+
 bh(1).FaceColor = cb(5, :); %blue
 bh(2).FaceColor = cb(1, :); %green 
-bh(3).FaceColor =cb(3, :) ; %purple
+bh(3).FaceColor = cb(3, :) ; %purple
 bh(4).FaceColor = cb(10, :); %purple
+
+% bh(1).EdgeColor = [1 1 1]; 
+% bh(2).EdgeColor = [1 1 1]; 
+% bh(3).EdgeColor = [1 1 1]; 
+% bh(4).EdgeColor = [1 1 1]; 
 
 set(gca,'XTickLabel',{'U','C','U','C'})
 set(gca,'FontSize',20);
 title(titleText)
 ylabel('Number of trials')
-lgd=legend(labels);
-%lgd.Location='best';
-lgd.FontSize=18;
+
 end

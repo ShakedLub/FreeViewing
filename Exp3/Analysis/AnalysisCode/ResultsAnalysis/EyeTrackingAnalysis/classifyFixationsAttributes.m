@@ -1,4 +1,4 @@
-function AttributesResults=classifyFixationsAttributes(ObjectsResults,fixations,Param,attrs)
+function AttributesResults=classifyFixationsAttributes(ObjectsResults,fixations,Param,attrs,attrNames)
 %comment: sometimes in objs{}.features some of the features are not 1 they
 %can be 2 and 3. This is not used and the features vector is changed to logical 
 %when counting attributes
@@ -28,7 +28,7 @@ for ii=1:size(ObjectsResults.image,2) %images
             fixDurObj=ObjectsResults.image(ii).condition(kk).subject(jj).fixDurObj;
             
             %fixations on objects with attributes
-            [countFixAtt,fixDurAtt,countFixNoAtt,fixDurNoAtt]=arrangeObjDataToAtt(countFixObj,fixDurObj,objs);
+            [countFixAtt,fixDurAtt,countFixNoAtt,fixDurNoAtt]=arrangeObjDataToAtt(countFixObj,fixDurObj,objs,attrNames);
             
             %save results
             AttributesResults.image(ii).condition(kk).subject(jj).countFixAtt=countFixAtt;
@@ -55,7 +55,7 @@ for ii=1:size(ObjectsResults.image,2) %images
                     fixDurObj=ObjectsResults.shuffled(nn).image(ii).condition(kk).subject(jj).fixDurObj;
                     
                     %fixations on objects with attributes
-                    [countFixAtt,fixDurAtt,countFixNoAtt,fixDurNoAtt]=arrangeObjDataToAtt(countFixObj,fixDurObj,objs);
+                    [countFixAtt,fixDurAtt,countFixNoAtt,fixDurNoAtt]=arrangeObjDataToAtt(countFixObj,fixDurObj,objs,attrNames);
                     
                     %save results
                     AttributesResults.shuffled(nn).image(ii).condition(kk).subject(jj).countFixAtt=countFixAtt;

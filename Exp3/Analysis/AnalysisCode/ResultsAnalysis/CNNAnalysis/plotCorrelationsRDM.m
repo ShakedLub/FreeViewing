@@ -22,7 +22,7 @@ ylim([0.8,1.1])
 if ~isempty(ResultsTreeBH)
     hold on
     numLayers=size(Results.Rho,2);
-    ind=(3+numLayers);
+    ind=(2+numLayers);
     lim=axis;
     height=((lim(4)-lim(3))/12);
     xt = xticks;

@@ -21,41 +21,41 @@ for pas = 1:length(labels)
     for group = 1:4
         if group == 1 %U experiment 1
             data(group,pas)=nanmean(D1.condition(1).SR(:,pas));
+            dataErr(group,pas)=nanstd(D1.condition(1).SR(:,pas))/sqrt(sum(~isnan(D1.condition(1).SR(:,pas))));
             dataPoints{group,pas} = D1.condition(1).SR(:,pas);
         elseif group == 2 %C experiment 1
             data(group,pas)=nanmean(D1.condition(2).SR(:,pas));
+            dataErr(group,pas)=nanstd(D1.condition(2).SR(:,pas))/sqrt(sum(~isnan(D1.condition(2).SR(:,pas))));
             dataPoints{group,pas} = D1.condition(2).SR(:,pas);
         elseif group == 3 %U experiment 2
             data(group,pas)=nanmean(D2.condition(1).SR(:,pas));
+            dataErr(group,pas)=nanstd(D2.condition(1).SR(:,pas))/sqrt(sum(~isnan(D2.condition(1).SR(:,pas))));
             dataPoints{group,pas} = D2.condition(1).SR(:,pas);
         elseif group == 4 %C experiment 2
             data(group,pas)=nanmean(D2.condition(2).SR(:,pas));
+            dataErr(group,pas)=nanstd(D2.condition(2).SR(:,pas))/sqrt(sum(~isnan(D2.condition(2).SR(:,pas))));
             dataPoints{group,pas} = D2.condition(2).SR(:,pas);
         end
     end
 end
 cd(wd)
-bh=bar(data);
+colors(1,:)=cb(5, :); %blue
+colors(2,:) = cb(1, :); %green 
+colors(3,:) =cb(3, :) ; %purple
+colors(4,:) = cb(10, :); %purple
+bh=ErrorBarOnGroupedBarsWithScatter(data,dataErr,dataPoints,colors);
 
-% Find the number of groups and the number of bars in each group
-[ngroups, nbars] = size(data);
-
-% Calculate the width for each bar group
-groupwidth = min(0.8, nbars/(nbars + 1.5));
-hold on
-for i = 1:nbars %num PAS options
-    % Calculate center of each bar
-    x = (1:ngroups) - groupwidth/2 + (2*i-1) * groupwidth / (2*nbars);
-    for j=1:length(x) %ngroups
-        scatter(x(j)*ones(1,length(dataPoints{j,i})), dataPoints{j,i},20,[0.6,0.6,0.6],'filled')
-    end
-end
-yline(50,'Color',[0.5,0.5,0.5])
-hold off
 bh(1).FaceColor = cb(5, :); %blue
-bh(2).FaceColor = cb(1, :); %green 
-bh(3).FaceColor =cb(3, :) ; %purple
+bh(2).FaceColor = cb(1, :); %green
+bh(3).FaceColor = cb(3, :) ; %purple
 bh(4).FaceColor = cb(10, :); %purple
+
+% bh(1).EdgeColor = [1 1 1]; 
+% bh(2).EdgeColor = [1 1 1]; 
+% bh(3).EdgeColor = [1 1 1]; 
+% bh(4).EdgeColor = [1 1 1]; 
+
+yline(50,'Color',[0.5 0.5 0.5],'LineWidth',1)
 
 set(gca,'XTickLabel',{'U','C','U','C'})
 set(gca,'FontSize',20);
@@ -66,6 +66,7 @@ ylabel('Accuracy')
 %lgd.Location='southwest';
 %lgd.FontSize=18;
 ylim([20 100])
+
     function D=createData(data,labels,indLabels)
         for cc=1:size(data,2) %visibility condition
             for ii=1:length(indLabels) %PAS option

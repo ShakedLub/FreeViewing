@@ -36,10 +36,9 @@ Conditions for running the code:
 a. saveFlag: 0 do not save, 1 save
 b. experiment_number: '1' for experiment 1, '2' for experiment 2 (this number should be given as a char) 
 c. condition: 1 - main analysis 
-              2 - low level type 1: this control analysis is done because the low level regions in the main 
-              analysis are different from what is written in the pre-registration (see manuscript). In the main analysis,  
-              low level type 2 regions are used (created using smiler package), in this analysis low level type 1 regions are used 
-              (created using the saliencytoolbox). 
+              2 - preregistration check: this control analysis is done because we applied some deviations from the preregistration. This analysis is without 
+              these changes: (1) In the main analysis low level type 2 regions are used (created using smiler package), in this analysis low level type 1   	      regions are used (created using the saliencytoolbox). (2) In this analysis trials with blinks are excluded, in the main analysis they are not. 	      (3) In this analysis objects are defined only based on OSIE database. In the main analysis objects are defined based on a combination of OSIE 	      and Broda and de Haas's database. (4) Two images that were excluded from the main analysis, are included here. 
+
               3 - RttM check: in this control analysis, participants with high objective awareness scores are excluded 
               to check if the results stem from RttM (see manuscript).
 
@@ -105,6 +104,8 @@ FreeViewing\Exp3\Analysis\AnalysisCode\ImageAnalysis
 
 A. Run_CreateHighLevelMaps.m - creates high level maps that define the semantically salient regions 
                                (high level regions) in the region analysis.
+			       This code has two conditions: condition = 1 creates high level maps for the main analysis with the combined objects database.
+			       condition = 2 creates high level maps for the preregistration control with OSIE objects only, and non Mondrian fixation maps 			       without blinks.
 
 C. Run_CreateLowLevelMaps2.m - creates low level maps type 2 that define the visually salient regions 
                                (low level regions) in the region analysis. The maps are created based on
@@ -180,6 +181,7 @@ FreeViewing\Exp3\Experiment\RUN_ME\Stimuli - Stimuli used in the experiment
 FreeViewing\Exp3\Analysis\AnalysisFolders\ResultsImages\FixationMapsRemoveCenterBias\Pilot1- Fixation maps in each visibility condition (U in the name for unconscious condition, and C for conscious), for each image, from all participants who viewed this image, in experiment 1
 FreeViewing\Exp3\Analysis\AnalysisFolders\ResultsImages\FixationMapsRemoveCenterBias\Pilot2- Fixation maps in each visibility condition (U in the name for unconscious condition, and C for conscious), for each image, from all participants who viewed this image, in experiment 2
 FreeViewing\Exp3\Analysis\AnalysisFolders\ResultsImages\HighLevelMaps - High level maps defining high level regions in region analysis
+FreeViewing\Exp3\Analysis\AnalysisFolders\ResultsImages\HighLevelMapsPreregControl - High level maps defining high level regions in region analysis for preregistration control
 FreeViewing\Exp3\Analysis\AnalysisFolders\ResultsImages\LowLevelMaps - Low level maps defining low level regions in region analysis (main analysis)
 FreeViewing\Exp3\Analysis\AnalysisFolders\ResultsImages\SaliencyMaps - Low level maps defining low level regions in region analysis (low level type 1, control analysis)
 FreeViewing\Exp3\Analysis\AnalysisFolders\ResultsImages\RegionsFixationMapsBothExperiments - Fixation maps for each image in each visibility conditions in each experiment (in one figure) overlaid on region classification
@@ -263,5 +265,14 @@ FreeViewing\Exp2\Raw Data\EyeTracker\Extracted files\Pilot3 - mat file for each 
 FreeViewing\Exp2\Raw Data\EyeTracker\Extracted files\Pilot3\DomRight - parsed data to fixations and saccades for participants with right dominant eye
 FreeViewing\Exp2\Raw Data\EyeTracker\Extracted files\Pilot3\DomLeft - parsed data to fixations and saccades for participants with left dominant eye 
 
+Order of running all the analysis (creating all results structs and fixation maps from the beginning):
+1)Run Run.m in EyeTrackingAnalysis in Exp2 folder, with the wanted condition, to create fixation maps for each image from data of experiment without mondrians, that are used to define high-level and High & low regions in the region analysis.
+2) Create region maps in ImageAnalysis in Exp3 folder (the order of creating the regions is important): 
+create low level regions type 1: Run_CreateLowLevelMaps1.m
+create high level regions: Run_CreateHighLevelMaps.m one time for each condition
+create low level regions type 2: Run_CreateLowLevelMaps2.m
+3)Run Run_analysis_images.m in EyeTrackingAnalysis in Exp3 folder, with the wanted condition to run the region and object analysis.
+4)Run Run.m in CNNAnalysis in Exp3 folder, with the wanted condition to run the CNN analysis.
+   
 
 

@@ -3,7 +3,7 @@ clc
 close all
 
 %% Parameters
-saveFlag=0;
+saveFlag=1;
 seed=1;
 
 %% paths
@@ -46,22 +46,22 @@ clear Results_Awareness;
 sprev=rng(seed);
 
 %% Plots
-figure('units','normalized','outerposition',[0 0 1 1])
-rows=3;
-columns=3;
+figure('units','normalized','outerposition',[0.3 0 0.7 1])
+rows=2;
+columns=2;
 
 % Objective measre experimnent 1 & 2
-plotNum=7;
+plotNum=[1,2];
 titleText='Objective measure';
 plotObjectiveMeasure(SummaryResults1.Data,SummaryResults2.Data,rows,columns,plotNum,titleText,Paths)
 
 % Subjective measure experimnent 1 & 2
-plotNum=8;
+plotNum=3;
 titleText='Subjective measure';
 plotSubjectiveMeasure(dataPAS1,dataPAS2,titleText,rows,columns,plotNum,Paths)
 
 % Objective and subjective measures
-plotNum=9;
+plotNum=4;
 titleText='Objective performance per visibility level';
 plotObjectiveAndSubjectiveMeasures(Results1,Results2,titleText,rows,columns,plotNum,Paths)
 

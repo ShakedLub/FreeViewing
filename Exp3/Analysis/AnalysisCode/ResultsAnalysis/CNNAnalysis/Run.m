@@ -3,7 +3,7 @@ clc
 clear
 
 %% Conditions
-saveFlag=0; %1 save, 0 do not save
+saveFlag=1; %1 save, 0 do not save
 experiment_number='1'; %'1', '2' or '1&2'
 condition=1; %condition 1 main analysis
              %condition 3 rttm check
@@ -19,6 +19,8 @@ else
 end
 
 Param.seed=1;
+
+Param.pixels_per_vdegree=46.1388; %calculated based on screen width 53.2 cm;
 
 % Take pooling (only from main branch) and convoultion layers, without conv
 % 1x1. So from inception module take: conv 3x3 and conv 5x5
@@ -88,7 +90,7 @@ d=dir('*.mat');
 ind=contains({d.name},'pileup');
 d=d(ind);
 cd(Paths.cnnAnalysisFolder)
-load([Paths.PileupFolder,'\',d(1).name],'DESIGN_PARAM','resources','EXPDATA')
+load([Paths.PileupFolder,'\',d(1).name],'DESIGN_PARAM','resources')
 Param.ImageNames=DESIGN_PARAM.Image_Names_Experiment;
 
 %delete two images that were excluded 
@@ -102,10 +104,9 @@ Param.ImageNames(indel)=[];
 %load more parameters
 RECT=resources.Images.dstRectDom;
 rect=[RECT(1),RECT(2),RECT(3)-RECT(1),RECT(4)-RECT(2)];%rect=[widthmin heightmin width height]
-Param.pixels_per_vdegree=EXPDATA.info.lab_setup.pixels_per_vdegree;
 Param.ImSize=[rect(4),rect(3)];
 if ~isequal(Param.wantedImSize,Param.ImSize)
-    error('Wrong number of images in experiment')
+    error('Wrong image size')
 end
 
 clear DESIGN_PARAM d ind resources RECT rect EXPDATA ImNamesHighNSSSimilarity indel

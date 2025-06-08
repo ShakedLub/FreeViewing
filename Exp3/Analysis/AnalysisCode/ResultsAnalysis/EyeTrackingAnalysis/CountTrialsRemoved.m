@@ -15,12 +15,13 @@ for ii=1:size(EXPDATA_ALL,1) %subjects
         TrialsRemoved.data(kk).SpecificImages=EXPDATA_ALL{ii,jj}.TrialsRemoved.SpecificImages;  
         TrialsRemoved.data(kk).SubjectiveAwarenessExclusion=EXPDATA_ALL{ii,jj}.TrialsRemoved.SubjectiveAwarenessExclusion;
         TrialsRemoved.data(kk).ObjectiveAwarenessNoAnswer=EXPDATA_ALL{ii,jj}.TrialsRemoved.ObjectiveAwarenessNoAnswer;
+        TrialsRemoved.data(kk).TrialsWithBlinks=EXPDATA_ALL{ii,jj}.TrialsRemoved.TrialsWithBlinks;
         TrialsRemoved.data(kk).SpecificTrials=EXPDATA_ALL{ii,jj}.TrialsRemoved.SpecificTrials;
         TrialsRemoved.data(kk).OneTrialBeforeCalibration=EXPDATA_ALL{ii,jj}.TrialsRemoved.OneTrialBeforeCalibration;
         
         TrialsRemoved.data(kk).AllVisibility=TrialsRemoved.data(kk).SubjectiveAwarenessExclusion;
         TrialsRemoved.data(kk).PercentRemovedVisibility=TrialsRemoved.data(kk).AllVisibility/TrialsRemoved.data(kk).AllImageTrials;
-        TrialsRemoved.data(kk).AllTechnical=TrialsRemoved.data(kk).SpecificImages+TrialsRemoved.data(kk).ObjectiveAwarenessNoAnswer+TrialsRemoved.data(kk).SpecificTrials+TrialsRemoved.data(kk).OneTrialBeforeCalibration;
+        TrialsRemoved.data(kk).AllTechnical=TrialsRemoved.data(kk).SpecificImages+TrialsRemoved.data(kk).ObjectiveAwarenessNoAnswer+TrialsRemoved.data(kk).TrialsWithBlinks+TrialsRemoved.data(kk).SpecificTrials+TrialsRemoved.data(kk).OneTrialBeforeCalibration;
         TrialsRemoved.data(kk).PercentRemovedTechnical=TrialsRemoved.data(kk).AllTechnical/TrialsRemoved.data(kk).AllImageTrials;
     end
 end

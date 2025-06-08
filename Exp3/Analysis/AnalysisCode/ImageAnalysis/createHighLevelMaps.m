@@ -1,11 +1,15 @@
-function createHighLevelMaps(Paths,imsize)
+function createHighLevelMaps(Paths,imsize,condition)
 plotFlag=0;
 
 %check the save folders exists and empty
 checkDirExistAndEmpty(Paths.HighLevelMapsPath);
 
 %load OSIE objects
-load([Paths.OSIEObjects,'\AttrsCombined.mat']);
+if condition == 1
+    load([Paths.OSIEObjects,'\AttrsCombined.mat']);
+elseif condition == 2
+    load([Paths.OSIEObjects,'\AttrsOSIE.mat']);
+end
 for aa=1:size(attrs,1) %images
     ImgNamesAttr{aa}=attrs{aa}.img;
 end

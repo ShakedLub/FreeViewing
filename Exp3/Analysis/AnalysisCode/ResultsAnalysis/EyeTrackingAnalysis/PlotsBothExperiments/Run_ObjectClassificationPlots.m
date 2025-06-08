@@ -3,7 +3,7 @@ clc
 close all
 
 %% Paramaters
-saveFlag=0; %1 save, 0 do not save
+saveFlag=1; %1 save, 0 do not save
 imageNum=[122 214 108];
 
 %% paths
@@ -112,24 +112,24 @@ if saveFlag
 end
 
 %% Fixations maps
-%Plot fixation maps
-figure('units','normalized','outerposition',[0 0 1 1])
-for ii=1:length(imageNum) %images
-    clear eyeData
-    numPlots=((ii-1)*columns+1):((ii-1)*columns+4);
-    
-    %Plot fixation classification
-    imageName=fixations1(imageNum(ii)).img;
-    %check this is also the same image in exp 2
-    if ~isequal(imageName,fixations2(imageNum(ii)).img)
-        error('Problem with image numbers in two experiments')
-    end
-    
-    eyeData{1}=fixations1(imageNum(ii)).condition(1).subject; %Only for image size
-
-    plotObjectsFixationMaps(imageName,Param1,Param2,eyeData,attrs,numPlots,rows,columns,Paths);
-end
-
-if saveFlag
-    saveas(gcf,'FixationMapsObjects.jpg', 'jpg')
-end
+% %Plot fixation maps
+% figure('units','normalized','outerposition',[0 0 1 1])
+% for ii=1:length(imageNum) %images
+%     clear eyeData
+%     numPlots=((ii-1)*columns+1):((ii-1)*columns+4);
+%     
+%     %Plot fixation classification
+%     imageName=fixations1(imageNum(ii)).img;
+%     %check this is also the same image in exp 2
+%     if ~isequal(imageName,fixations2(imageNum(ii)).img)
+%         error('Problem with image numbers in two experiments')
+%     end
+%     
+%     eyeData{1}=fixations1(imageNum(ii)).condition(1).subject; %Only for image size
+% 
+%     plotObjectsFixationMaps(imageName,Param1,Param2,eyeData,attrs,numPlots,rows,columns,Paths);
+% end
+% 
+% if saveFlag
+%     saveas(gcf,'FixationMapsObjects.jpg', 'jpg')
+% end
