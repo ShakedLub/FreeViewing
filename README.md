@@ -1,7 +1,7 @@
 # FreeViewing
 Preprint: https://doi.org/10.31234/osf.io/x8eaz
 
-############################ Exp 3: Main experiment, pilot 1 is experiment 1, pilot 2 is experiment 2
+############################ Exp 3: Main experiment, pilot 1 is Experiment 1, pilot 2 is Experiment 2
 
 ############# Before running, download the following Exp3 folders from OSF (https://osf.io/b5ntv/):
 a. Locate the Raw Data folder inside FreeViewing\Exp3\
@@ -36,12 +36,10 @@ Conditions for running the code:
 a. saveFlag: 0 do not save, 1 save
 b. experiment_number: '1' for experiment 1, '2' for experiment 2 (this number should be given as a char) 
 c. condition: 1 - main analysis 
-              2 - preregistration check: this control analysis is done because we applied some deviations from the preregistration. This analysis is without 
-              these changes: (1) In the main analysis low level type 2 regions are used (created using smiler package), in this analysis low level type 1   	      regions are used (created using the saliencytoolbox). (2) In this analysis trials with blinks are excluded, in the main analysis they are not. 	      (3) In this analysis objects are defined only based on OSIE database. In the main analysis objects are defined based on a combination of OSIE 	      and Broda and de Haas's database. (4) Two images that were excluded from the main analysis, are included here. 
-
+              2 - preregistration check: this control analysis is done because we applied some deviations from the   			  preregistration. This analysis is without these changes: (1) In the main analysis low level type 2 			  regions are used (created using smiler package), in this analysis low level type 1 regions are used 			  (created using the saliencytoolbox). (2) In this analysis trials with blinks are excluded, in the main 		  analysis they are not. (3) In this analysis objects are defined only based on the OSIE database. In 			  the main analysis objects are defined based on a combination of OSIE and Broda and de Haas's database. 		  (4) Two images that were excluded from the main analysis, are included here. 
               3 - RttM check: in this control analysis, participants with high objective awareness scores are excluded 
-              to check if the results stem from RttM (see manuscript).
-
+                  to check if the results stem from RttM (see manuscript).
+	      4 - Permutation check: this permutation check maintains the trial's viewing sequence, and randomize fixations 		  between images. Therefore this analysis takes into account that participants fixations have a clustered 		  viewing structure. 
 
 #CNN analysis
 This analysis calculates the RSA analysis, comparing fixation maps in both visibility conditions to the activations of the CNN.
@@ -71,20 +69,20 @@ saveFlag- 1 save, 0 do not save
 
 C.Run_EyeMovementResultsExperiments.m - create the object analysis, region analysis and emotional face attribute analysis results figures.
 Possible parameters: 
-AnalysisType- 1 main analysis, 2 low level type 1 analysis, 3 RttM check analysis
+AnalysisType- 1 main analysis, 2 low level type 1 analysis, 3 RttM check analysis, 4 permutation check
 saveFlag- 1 save, 0 do not save
 
-D. Run_ObjectClassificationPlots.m - creates the object segmenation demonstration figures.
+D. Run_ObjectClassificationPlots.m - creates the object segmentation demonstration figures.
 Possible parameters: 
 saveFlag- 1 save, 0 do not save
 
-E.Run_RegionClassificationPlots.m - creates the region segmenation demonstration figures.
+E.Run_RegionClassificationPlots.m - creates the region segmentation demonstration figures.
 Possible parameters: 
 saveFlag- 1 save, 0 do not save
 
 F.Run_TreeBHAllExperimentsWithCNN.m - calculate tree BH for all analyses in the manuscript.
 Possible parameters: 
-AnalysisType- 1 main analysis, 2 low level type 1 analysis, 3 RttM check analysis
+AnalysisType- 1 main analysis, 2 low level type 1 analysis, 3 RttM check analysis, 4 permutation check analysis
 saveFlag- 1 save, 0 do not save
 
 #Behavioral analysis 
@@ -104,8 +102,8 @@ FreeViewing\Exp3\Analysis\AnalysisCode\ImageAnalysis
 
 A. Run_CreateHighLevelMaps.m - creates high level maps that define the semantically salient regions 
                                (high level regions) in the region analysis.
-			       This code has two conditions: condition = 1 creates high level maps for the main analysis with the combined objects database.
-			       condition = 2 creates high level maps for the preregistration control with OSIE objects only, and non Mondrian fixation maps 			       without blinks.
+			       This code has two conditions: condition = 1 creates high level maps for the main analysis with 			       the combined objects database.
+			       condition = 2 creates high level maps for the preregistration control with OSIE objects only, 			       and non Mondrian fixation maps without blinks.
 
 C. Run_CreateLowLevelMaps2.m - creates low level maps type 2 that define the visually salient regions 
                                (low level regions) in the region analysis. The maps are created based on
@@ -192,8 +190,11 @@ FreeViewing\Exp3\Analysis\AnalysisFolders\ResultsStructs\Pilot1_Final- experimen
 FreeViewing\Exp3\Analysis\AnalysisFolders\ResultsStructs\Pilot2_Final- experiment 2 main analysis results 
 FreeViewing\Exp3\Analysis\AnalysisFolders\ResultsStructs\Pilot1_RttMCheck- experiment 1 RttM check analysis results 
 FreeViewing\Exp3\Analysis\AnalysisFolders\ResultsStructs\Pilot2_RttMCheck- experiment 2 RttM check analysis results 
-FreeViewing\Exp3\Analysis\AnalysisFolders\ResultsStructs\Pilot1_LowLevelType1- experiment 1 low level type 1, control analysis results 
-FreeViewing\Exp3\Analysis\AnalysisFolders\ResultsStructs\Pilot2_LowLevelType1- experiment 2 low level type 1, control analysis results
+FreeViewing\Exp3\Analysis\AnalysisFolders\ResultsStructs\Pilot1_PreregistrationCheck- experiment 1 preregistration control analysis results 
+FreeViewing\Exp3\Analysis\AnalysisFolders\ResultsStructs\Pilot2_PreregistrationCheck- experiment 2 preregistration control analysis results
+FreeViewing\Exp3\Analysis\AnalysisFolders\ResultsStructs\Pilot1_PermutationCheck- experiment 1 permutation control analysis results 
+FreeViewing\Exp3\Analysis\AnalysisFolders\ResultsStructs\Pilot2_PermutationCheck- experiment 2 permutation control analysis results
+
 FreeViewing\Exp3\Analysis\AnalysisFolders\ResultsStructs\RSA\Pilot1_Final- CNN analysis results, main analysis, experiment 1
 FreeViewing\Exp3\Analysis\AnalysisFolders\ResultsStructs\RSA\Pilot2_Final- CNN analysis results, main analysis, experiment 2
 FreeViewing\Exp3\Analysis\AnalysisFolders\ResultsStructs\RSA\Pilot12_Final- CNN analysis results, main analysis, experiment 1&2
@@ -240,7 +241,9 @@ high-level and High & low regions in the region analysis.
 The analysis code is in:
 FreeViewing\Exp2\Analysis\Analysis Code\ResultsAnalysis\EyeTrackingAnalysis
 - Run the code by running the script: Run.m in the command window
-Choose whether to save the results by changing the saveFlag (1 save, 0 do not save).
+Parameters: saveFlag (1 save, 0 do not save).
+condition (1 : main analysis, 2: preregistration control)
+
 - Create plot by running the script: Run_Plot.m in the command window
 
 ############# Folders content:
@@ -252,10 +255,12 @@ FreeViewing\Exp2\Experiment\RUN_ME\Code - Experimental code to run the experimen
 FreeViewing\Exp2\Experiment\RUN_ME\Stimuli - Stimuli used in the experiment
 
 # fixation maps folder:
-FreeViewing\Exp2\Analysis\AnalysisFolders\ResultsImages\FixationMaps- Fixation map for each image from all participants who viewed this image
+FreeViewing\Exp2\Analysis\AnalysisFolders\ResultsImages\FixationMaps- Fixation map for each image from all participants who viewed this image for main analysis
+FreeViewing\Exp2\Analysis\AnalysisFolders\ResultsImages\FixationMapsNoBlinks- Fixation map for each image from all participants who viewed this image for preregistration control
 
 # results folder:
-FreeViewing\Exp2\Analysis\AnalysisFolders\ResultsStructs- Results structs saved from the analysis
+FreeViewing\Exp2\Analysis\AnalysisFolders\ResultsStructs\MainAnalysis- Results structs saved from the analysis when running in condition=1 main analysis
+FreeViewing\Exp2\Analysis\AnalysisFolders\ResultsStructs\PreregistrationControlNoBlinks- Results structs saved from the analysis when running in condition=2 preregistration control
 
 # data folders:
 FreeViewing\Exp2\Raw Data\Behavioral\Pilot3 - experimental data struct for each participant
@@ -265,14 +270,14 @@ FreeViewing\Exp2\Raw Data\EyeTracker\Extracted files\Pilot3 - mat file for each 
 FreeViewing\Exp2\Raw Data\EyeTracker\Extracted files\Pilot3\DomRight - parsed data to fixations and saccades for participants with right dominant eye
 FreeViewing\Exp2\Raw Data\EyeTracker\Extracted files\Pilot3\DomLeft - parsed data to fixations and saccades for participants with left dominant eye 
 
-Order of running all the analysis (creating all results structs and fixation maps from the beginning):
-1)Run Run.m in EyeTrackingAnalysis in Exp2 folder, with the wanted condition, to create fixation maps for each image from data of experiment without mondrians, that are used to define high-level and High & low regions in the region analysis.
+############################ Order of running all the analysis (creating all results structs and fixation maps from the  	  		     beginning):
+1)Run Run.m in EyeTrackingAnalysis in Exp2 folder, one time for each condition (1 main analysis, 2 preregistration check), to create fixation maps for each image from data of experiment without mondrians, that are used to define high-level and High & low regions in the region analysis.
 2) Create region maps in ImageAnalysis in Exp3 folder (the order of creating the regions is important): 
 create low level regions type 1: Run_CreateLowLevelMaps1.m
-create high level regions: Run_CreateHighLevelMaps.m one time for each condition
+create high level regions: Run_CreateHighLevelMaps.m one time for each condition (1 main analysis, 2 preregistration check)
 create low level regions type 2: Run_CreateLowLevelMaps2.m
-3)Run Run_analysis_images.m in EyeTrackingAnalysis in Exp3 folder, with the wanted condition to run the region and object analysis.
-4)Run Run.m in CNNAnalysis in Exp3 folder, with the wanted condition to run the CNN analysis.
+3)Run Run_analysis_images.m in EyeTrackingAnalysis in Exp3 folder, with the wanted condition  (1 main analysis, 2 preregistration check, 3 RttM check, 4 permutation check), to run the region and object analysis.
+4)Run Run.m in CNNAnalysis in Exp3 folder, with the wanted condition (1 main analysis, 3 RttM check), to run the CNN analysis.
    
 
 

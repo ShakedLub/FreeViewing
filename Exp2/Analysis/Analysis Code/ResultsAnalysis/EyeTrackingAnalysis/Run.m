@@ -4,7 +4,7 @@ clc
 
 %% condition
 condition=2; %condition 1: main analysis
-%condition 2: peregistration control
+%condition 2: preregistration control
 saveFlag=1;
 
 %% Parameters
