@@ -51,7 +51,7 @@ Run the code by running the script: Run.m in the command window
 
 Change the following parameters to adjust the code as you like:
 a. saveFlag: 0 do not save, 1 save
-b. experiment_number: '1' for experiment 1, '2' for experiment 2, '1&2' for combined data from 
+b. experiment_number: '1' for experiment 1, '2' for experiment 2, '12' for combined data from 
                       experiment 1 and 2 (this number should be given as a char) 
 c. condition: 1 - main analysis  
               3 - RttM check: control analysis see explanation above.
@@ -196,10 +196,10 @@ FreeViewing\Exp3\Analysis\AnalysisFolders\ResultsStructs\Pilot1_LowLevelType1- e
 FreeViewing\Exp3\Analysis\AnalysisFolders\ResultsStructs\Pilot2_LowLevelType1- experiment 2 low level type 1, control analysis results
 FreeViewing\Exp3\Analysis\AnalysisFolders\ResultsStructs\RSA\Pilot1_Final- CNN analysis results, main analysis, experiment 1
 FreeViewing\Exp3\Analysis\AnalysisFolders\ResultsStructs\RSA\Pilot2_Final- CNN analysis results, main analysis, experiment 2
-FreeViewing\Exp3\Analysis\AnalysisFolders\ResultsStructs\RSA\Pilot1&2_Final- CNN analysis results, main analysis, experiment 1&2
+FreeViewing\Exp3\Analysis\AnalysisFolders\ResultsStructs\RSA\Pilot12_Final- CNN analysis results, main analysis, experiment 1&2
 FreeViewing\Exp3\Analysis\AnalysisFolders\ResultsStructs\RSA\Pilot1_RttMCheck- CNN analysis results, RttM check analysis, experiment 1
 FreeViewing\Exp3\Analysis\AnalysisFolders\ResultsStructs\RSA\Pilot2_RttMCheck- CNN analysis results, RttM check analysis, experiment 2
-FreeViewing\Exp3\Analysis\AnalysisFolders\ResultsStructs\RSA\Pilot1&2_RttMCheck- CNN analysis results, RttM check analysis, experiment 1&2
+FreeViewing\Exp3\Analysis\AnalysisFolders\ResultsStructs\RSA\Pilot12_RttMCheck- CNN analysis results, RttM check analysis, experiment 1&2
 
 # data folders
 FreeViewing\Exp3\Raw Data\Behavioral\Pilot1 - experimental data struct for each participant in experiment 1
