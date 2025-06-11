@@ -4,12 +4,12 @@ clear
 
 %% Conditions
 saveFlag=1; %1 save, 0 do not save
-experiment_number='1'; %'1', '2' or '1&2'
+experiment_number='1'; %'1', '2' or '12'
 condition=1; %condition 1 main analysis
              %condition 3 rttm check
              
 %% parameters
-Param.PILOT_NUM=experiment_number; %'1', '2', '1&2'
+Param.PILOT_NUM=experiment_number; %'1', '2', '12'
 Param.RemoveCenterBias=1; % 1 yes, 0 no
 
 if condition == 3
@@ -39,7 +39,7 @@ ResultsTreeBH=[];
 Paths.cnnAnalysisFolder=cd;
 cd ..\..\..\..\
 Paths.DataFolder=[pwd,'\Raw Data'];
-if ~isequal(Param.PILOT_NUM,'1&2')
+if ~isequal(Param.PILOT_NUM,'12')
     Paths.PileupFolder=[Paths.DataFolder,'\DataPileups\Pilot',Param.PILOT_NUM];
 else
     Paths.PileupFolder=[Paths.DataFolder,'\DataPileups\Pilot1'];
@@ -56,7 +56,7 @@ cd(Paths.cnnAnalysisFolder)
 %results paths
 cd ..\..\..\
 Paths.FoldersPath=[pwd,'\AnalysisFolders'];
-if ~isequal(Param.PILOT_NUM,'1&2')
+if ~isequal(Param.PILOT_NUM,'12')
     if Param.RemoveSubjectsAwarenessScore
         Paths.ResultsStructsPath=[Paths.FoldersPath,'\ResultsStructs\Pilot',Param.PILOT_NUM,'_RttMCheck'];
     else
@@ -117,7 +117,7 @@ sprev=rng(Param.seed);
 %% Fixation map in C and U conditions- load and create RDMs
 %load fixations processed
 %This is data with no fixations in the middle in addition the center is deleted later, after creating the fixation maps
-if ~isequal(Param.PILOT_NUM,'1&2')
+if ~isequal(Param.PILOT_NUM,'12')
     load([Paths.ResultsStructsPath,'\FixationsPerImageProcessed_RemoveCenterBias.mat'])
     fixations=FixationsPerImageProcessed;
     clear FixationsPerImageProcessed

@@ -3,7 +3,7 @@ clc
 close all
 
 %% Paramaters
-AnalysisType=4; %1 main, 2 preregistration control, 3 RttM check, 4 permutation control
+AnalysisType=1; %1 main, 2 preregistration control, 3 RttM check, 4 permutation control
 saveFlag=0; %1 save, 0 do not save
 
 ParamTree.plot_tree=1;
@@ -58,11 +58,11 @@ clear AttributesSummary ObjectsSummary
 if AnalysisType == 3
     path1=[dataPath,'\RSA\Pilot1_RttMCheck'];
     path2=[dataPath,'\RSA\Pilot2_RttMCheck'];
-    path12=[dataPath,'\RSA\Pilot1&2_RttMCheck'];
+    path12=[dataPath,'\RSA\Pilot12_RttMCheck'];
 else
     path1=[dataPath,'\RSA\Pilot1_Final'];
     path2=[dataPath,'\RSA\Pilot2_Final'];
-    path12=[dataPath,'\RSA\Pilot1&2_Final'];
+    path12=[dataPath,'\RSA\Pilot12_Final'];
 end
 load([path1,'\','Results_RemoveCenterBias.mat']);
 CNNResults1=Results;

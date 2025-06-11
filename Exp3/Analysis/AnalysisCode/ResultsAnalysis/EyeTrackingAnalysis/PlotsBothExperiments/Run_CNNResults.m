@@ -3,7 +3,7 @@ clc
 close all
 
 %% Paramaters
-AnalysisType=3; %1 main, 3 RttM check
+AnalysisType=1; %1 main, 3 RttM check
 saveFlag=1; %1 save, 0 do not save
 
 %% paths
@@ -16,11 +16,11 @@ cd(codePath)
 if AnalysisType==1
     path1=[dataPath,'\RSA\Pilot1_Final'];
     path2=[dataPath,'\RSA\Pilot2_Final'];
-    path12=[dataPath,'\RSA\Pilot1&2_Final'];
+    path12=[dataPath,'\RSA\Pilot12_Final'];
 elseif AnalysisType==3
     path1=[dataPath,'\RSA\Pilot1_RttMCheck'];
     path2=[dataPath,'\RSA\Pilot2_RttMCheck'];
-    path12=[dataPath,'\RSA\Pilot1&2_RttMCheck'];
+    path12=[dataPath,'\RSA\Pilot12_RttMCheck'];
 end
 
 %% load data
