@@ -1,0 +1,26 @@
+{
+    "id": "928828BE",
+    "path": "Y:/Experiments/FreeViewing/ExpMain/Analysis/AnalysisCode/ResultsAnalysis/BehavioralAnalysis/AnalysisR/BayesianParameterEstimationScript.R",
+    "project_path": "BayesianParameterEstimationScript.R",
+    "type": "r_source",
+    "hash": "1565260840",
+    "contents": "",
+    "dirty": false,
+    "created": 1774961205220.0,
+    "source_on_save": false,
+    "relative_order": 6,
+    "properties": {
+        "source_window_id": "",
+        "Source": "Source",
+        "cursorPosition": "83,117",
+        "scrollLine": "110"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1779868587,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1779868587442,
+    "read_only": false,
+    "read_only_alternatives": []
+}

@@ -1,0 +1,16 @@
+I downloaded the code from: 
+https://github.com/RainCloudPlots/RainCloudPlots
+
+I downloaded:
+1) the git folder of rain cloud plots
+2) cbrewer: colorbrewer schemes for matlab
+from: https://uk.mathworks.com/matlabcentral/fileexchange/34087-cbrewer-colorbrewer-schemes-for-matlab
+3) Robust_Statistical_Toolbox
+from: https://github.com/CPernet/Robust_Statistical_Toolbox
+I put 2 and 3 in tutorial_matlab folder 
+
+
+NOTE: the robust statistical toolbox is made available under 
+the GNU General Public License which is a "copyleft" license. GPL is 
+compatible with MIT (the license for this repository) but supersedes it. 
+Make sure that you are not violating this license when you run the matlab tutorial. 😃

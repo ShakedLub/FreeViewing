@@ -1,0 +1,5 @@
+compName,expNumber,visCond,startTime,endsTime,scoreCluster,pval not corrected
+Obj vs Bg,1,1,500,3500,124.7530172,0.05994006
+Obj vs Bg,1,2,500,3500,228.5460927,0.000999001
+Obj vs Bg,2,1,500,3500,138.2697067,0.003996004
+Obj vs Bg,2,2,500,3500,217.1612842,0.000999001
