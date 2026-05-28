@@ -218,24 +218,22 @@ Running the code: (a) Run GBC.R (b) then GBBayes.R (C) and finally GBCGBBayesScr
 
 FreeViewing\\ExpMain\\Analysis\\AnalysisCode\\ResultsAnalysis\\EyeTrackingAnalysis\\PlotsBothExperiments
 
-(1) Run\_AwarenessResultsExperiments.m - creates the awareness results figure.
+(1) **Run\_AwarenessResultsExperiments.m** - creates the awareness results figure.
 
 Conditions:
 (a) saveFlag- 1 save, 0 do not save
 
 
 
-(2) Run\_AwarenessResultsBPE.m - creates the Bayesian parameter estimation awareness results figure.
+(2) **Run\_AwarenessResultsBPE.m** - creates the Bayesian parameter estimation awareness results figure.
 
-Conditions:
-(a) saveFlag- 1 save, 0 do not save
-
+Conditions:(a) saveFlag- 1 save, 0 do not save
 
 
-(3) Run\_EyeMovementResultsExperiments.m - create the object analysis, region analysis and emotional face attribute analysis results figures, and create tables summarizing effect sizes and p-values for all conditions except the main condition.
 
-Conditions:
-(a) AnalysisType- 
+(3) **Run\_EyeMovementResultsExperiments.m** - create the object analysis, region analysis and emotional face attribute analysis results figures, and create tables summarizing effect sizes and p-values for all conditions except for the main condition.
+
+Conditions:(a) AnalysisType- 
 
 1 main analysis 
 
@@ -267,7 +265,7 @@ More analyses for revision:
 
 
 
-(4) Run\_CNNResults.m - create the CNN results figures, and create tables summarizing effect sizes and p-values for all conditions except the main condition.
+(4) **Run\_CNNResults.m** - create the CNN results figures, and create tables summarizing effect sizes and p-values for all conditions except the main condition.
 
 Conditions:
 
@@ -291,73 +289,72 @@ More analyses for revision:
 
 
 
-(5) Run\_SaccadeRateTraceAnalysis.m - calculate saccade trace and checks for significance for each experiment separately
+(5) **Run\_SaccadeRateTraceAnalysis.m** - calculate saccade trace and checks for significance for each experiment separately.
+
 Conditions:
 (a) saveFlag- 1 save, 0 do not save
 
 
 
-(6) Run\_SaccadeRateTracePlots.m - plot the saccade rate trace and creates data table for this analysis
+(6) **Run\_SaccadeRateTracePlots.m** - plot the saccade rate trace and creates data table for this analysis
+
 Conditions:
+
 (a) saveFlag- 1 save, 0 do not save
 
 (b) permutationType- 1- shuffling two conditions that are compare, 2- shuffling fixations between images
 
 
 
-(7) Run\_TreeBHAllExperimentsWithCNN.m - calculate tree BH for all analyses in the manuscript and create tables summarizing effect sizes and p-values for the main condition (1).
-Conditions:
-(b) saveFlag- 1 save, 0 do not save
+(7) **Run\_TreeBHAllExperimentsWithCNN.m** - calculate tree BH for all analyses in the manuscript and create tables summarizing effect sizes and p-values for the main condition.
+
+Conditions:(a) saveFlag- 1 save, 0 do not save
 
 
 
-(8) Run\_ObjectClassificationPlots.m - creates the object segmentation demonstration figures.
-Conditions:
-(a) saveFlag- 1 save, 0 do not save
+(8) **Run\_ObjectClassificationPlots.m** - creates the object segmentation demonstration figures.
+
+Conditions:(a) saveFlag- 1 save, 0 do not save
 
 
 
-(9) Run\_RegionClassificationPlots.m - creates the region segmentation demonstration figures.
-Conditions:
-(a) saveFlag- 1 save, 0 do not save
+(9) **Run\_RegionClassificationPlots.m** - creates the region segmentation demonstration figures.
+
+Conditions:(a) saveFlag- 1 save, 0 do not save
 
 
 
-(10) Run\_ObjectRegionCombinedMap: creates object and region segmentation demonstration figures.
+(10) **Run\_ObjectRegionCombinedMap**.m - creates object and region segmentation demonstration figures.
 
-Conditions:
-(a) saveFlag- 1 save, 0 do not save
-
-
-
-(11) Run\_CompareImagevsControlTrialsExperiement1 - conducts an analysis comparing image trials to control trials (shuffled images) in both visibility conditions, this is done only on Experiment 1
-
-Conditions:
-(a) saveFlag- 1 save, 0 do not save
+Conditions:(a) saveFlag- 1 save, 0 do not save
 
 
 
-(12) Run\_CompareImagevsControlTrialsExperiement1\_CreatePlot - creates a figure for the analysis in (11).
+(11) **Run\_CompareImagevsControlTrialsExperiement1**.m - conducts an analysis comparing image trials to control trials (shuffled images) in both visibility conditions, this is done only on Experiment 1
 
-Conditions:
-(a) saveFlag- 1 save, 0 do not save
-
-
-
-(13) Run\_DispersionNSSPlotsExperiment1 - creates a figure for dispersion and NSS similarity results in Experiment 1.
-
-Conditions:
-(a) saveFlag- 1 save, 0 do not save
+Conditions:(a) saveFlag- 1 save, 0 do not save
 
 
 
-(14) Run\_HistogramFixationCLassificationOverlap.m - plot a histogram of the overlap between the circle surrounding the fixations and the classified region for all fixations
-Conditions:
-(a) saveFlag- 1 save, 0 do not save
+(12) **Run\_CompareImagevsControlTrialsExperiement1\_CreatePlot.m** - creates a figure for the analysis in (11).
+
+Conditions:(a) saveFlag- 1 save, 0 do not save
 
 
 
-(15) Run\_BackgroundRegions: check if background regions are viewed below chance in the region analysis and objects analysis
+(13) **Run\_DispersionNSSPlotsExperiment1.m** - creates a figure for dispersion and NSS similarity results in Experiment 1.
+
+Conditions:(a) saveFlag- 1 save, 0 do not save
+
+
+
+(14) **Run\_HistogramFixationCLassificationOverlap.m** - plot a histogram of the overlap between the circle surrounding the fixations and the classified region for all fixations
+
+Conditions:(a) saveFlag- 1 save, 0 do not save
+
+
+
+(15) **Run\_BackgroundRegions.m** - check if background regions are viewed below chance in the region analysis and objects analysis
 
 
 
