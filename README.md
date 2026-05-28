@@ -4,7 +4,7 @@ Preprint: https://doi.org/10.31234/osf.io/x8eaz
 
 
 
-## ExpMain: Main experiment
+1. # ExpMain: Main experiment
 
 Includes Experiment 1 and Experiment 2 (replication).
 
@@ -12,7 +12,7 @@ All analyses were run on Matlab 2018B, except for the CNN analysis which was con
 
 #### &#x20;
 
-### Before running
+### 1.1. Before running
 
 ###### If you are downloading from OSF:
 
@@ -36,7 +36,7 @@ b. Locate the ResultsStructs folder inside FreeViewing\\ExpMain\\Analysis\\Analy
 
 
 
-### Experimental code:
+### 1.2. Experimental code:
 
 ###### Location:
 
@@ -67,9 +67,9 @@ Choose "restart trials on fixation break".
 
 &#x20;
 
-### Analysis code:
+### 1.3. Analysis code:
 
-#### Eye tracking analysis
+### 1.3.1. Eye tracking analysis
 
 This analysis arranges the eye tracking data, and then calculates the object analysis, region analysis and emotional face attribute analysis.
 
@@ -134,7 +134,7 @@ More analyses for revision:
 
 
 
-#### CNN analysis
+### 1.3.2. CNN analysis
 
 This analysis calculates the RSA analysis, comparing fixation maps in both visibility conditions to the activations of the CNN.
 
@@ -177,7 +177,7 @@ More analyses for revision (run on both experiments together):
 
 
 
-#### Behavioral analysis
+### 1.3.3. Behavioral analysis
 
 This analysis checks awareness scores of all participants, calculates group level awareness, and save tables of the data.
 
@@ -203,35 +203,35 @@ Inside the folder BayesianAnalysis there are the Bayesian analysis calculations 
 
 * GBC, GB-Bayes and Bayesian parameter estimation analyses:
 
-(1) Open the R project AnalysisR.Rproj
+a. Open the R project AnalysisR.Rproj
 
-(2) Running GBC and GBBayes tests on the behavioral data.
+b. Running GBC and GBBayes tests on the behavioral data.
 Running the code: (a) Run GBC.R (b) then GBBayes.R (C) and finally GBCGBBayesScript.R
 
-(2) Running Bayesian parameter estimation analysis. Running the code: Run BayesianParameterEstimationScript.R
+c. Running Bayesian parameter estimation analysis. Running the code: Run BayesianParameterEstimationScript.R
 
 
 
-#### Analyses on both experiments
+### 1.3.4. Analyses on both experiments
 
 ###### Location:
 
 FreeViewing\\ExpMain\\Analysis\\AnalysisCode\\ResultsAnalysis\\EyeTrackingAnalysis\\PlotsBothExperiments
 
-(1) **Run\_AwarenessResultsExperiments.m** - creates the awareness results figure.
+**1.3.4.1.** **Run\_AwarenessResultsExperiments.m** - creates the awareness results figure.
 
 Conditions:
 (a) saveFlag- 1 save, 0 do not save
 
 
 
-(2) **Run\_AwarenessResultsBPE.m** - creates the Bayesian parameter estimation awareness results figure.
+**1.3.4.2.** **Run\_AwarenessResultsBPE.m** - creates the Bayesian parameter estimation awareness results figure.
 
 Conditions:(a) saveFlag- 1 save, 0 do not save
 
 
 
-(3) **Run\_EyeMovementResultsExperiments.m** - create the object analysis, region analysis and emotional face attribute analysis results figures, and create tables summarizing effect sizes and p-values for all conditions except for the main condition.
+**1.3.4.3.** **Run\_EyeMovementResultsExperiments.m** - create the object analysis, region analysis and emotional face attribute analysis results figures, and create tables summarizing effect sizes and p-values for all conditions except for the main condition.
 
 Conditions:(a) AnalysisType- 
 
@@ -265,7 +265,7 @@ More analyses for revision:
 
 
 
-(4) **Run\_CNNResults.m** - create the CNN results figures, and create tables summarizing effect sizes and p-values for all conditions except the main condition.
+**1.3.4.4.** **Run\_CNNResults.m** - create the CNN results figures, and create tables summarizing effect sizes and p-values for all conditions except the main condition.
 
 Conditions:
 
@@ -289,14 +289,14 @@ More analyses for revision:
 
 
 
-(5) **Run\_SaccadeRateTraceAnalysis.m** - calculate saccade trace and checks for significance for each experiment separately.
+**1.3.4.5.** **Run\_SaccadeRateTraceAnalysis.m** - calculate saccade trace and checks for significance for each experiment separately.
 
 Conditions:
 (a) saveFlag- 1 save, 0 do not save
 
 
 
-(6) **Run\_SaccadeRateTracePlots.m** - plot the saccade rate trace and creates data table for this analysis
+**1.3.4.6.** **Run\_SaccadeRateTracePlots.m** - plot the saccade rate trace and creates data table for this analysis
 
 Conditions:
 
@@ -306,59 +306,59 @@ Conditions:
 
 
 
-(7) **Run\_TreeBHAllExperimentsWithCNN.m** - calculate tree BH for all analyses in the manuscript and create tables summarizing effect sizes and p-values for the main condition.
+**1.3.4.7.** **Run\_TreeBHAllExperimentsWithCNN.m** - calculate tree BH for all analyses in the manuscript and create tables summarizing effect sizes and p-values for the main condition.
 
 Conditions:(a) saveFlag- 1 save, 0 do not save
 
 
 
-(8) **Run\_ObjectClassificationPlots.m** - creates the object segmentation demonstration figures.
+**1.3.4.8.** **Run\_ObjectClassificationPlots.m** - creates the object segmentation demonstration figures.
 
 Conditions:(a) saveFlag- 1 save, 0 do not save
 
 
 
-(9) **Run\_RegionClassificationPlots.m** - creates the region segmentation demonstration figures.
+**1.3.4.9.** **Run\_RegionClassificationPlots.m** - creates the region segmentation demonstration figures.
 
 Conditions:(a) saveFlag- 1 save, 0 do not save
 
 
 
-(10) **Run\_ObjectRegionCombinedMap**.m - creates object and region segmentation demonstration figures.
+**1.3.4.10.** **Run\_ObjectRegionCombinedMap**.m - creates object and region segmentation demonstration figures.
 
 Conditions:(a) saveFlag- 1 save, 0 do not save
 
 
 
-(11) **Run\_CompareImagevsControlTrialsExperiement1**.m - conducts an analysis comparing image trials to control trials (shuffled images) in both visibility conditions, this is done only on Experiment 1
+**1.3.4.11.** **Run\_CompareImagevsControlTrialsExperiement1**.m - conducts an analysis comparing image trials to control trials (shuffled images) in both visibility conditions, this is done only on Experiment 1
 
 Conditions:(a) saveFlag- 1 save, 0 do not save
 
 
 
-(12) **Run\_CompareImagevsControlTrialsExperiement1\_CreatePlot.m** - creates a figure for the analysis in (11).
+**1.3.4.12.** **Run\_CompareImagevsControlTrialsExperiement1\_CreatePlot.m** - creates a figure for the analysis in (11).
 
 Conditions:(a) saveFlag- 1 save, 0 do not save
 
 
 
-(13) **Run\_DispersionNSSPlotsExperiment1.m** - creates a figure for dispersion and NSS similarity results in Experiment 1.
+**1.3.4.13.** **Run\_DispersionNSSPlotsExperiment1.m** - creates a figure for dispersion and NSS similarity results in Experiment 1.
 
 Conditions:(a) saveFlag- 1 save, 0 do not save
 
 
 
-(14) **Run\_HistogramFixationCLassificationOverlap.m** - plot a histogram of the overlap between the circle surrounding the fixations and the classified region for all fixations
+**1.3.4.14.** **Run\_HistogramFixationCLassificationOverlap.m** - plot a histogram of the overlap between the circle surrounding the fixations and the classified region for all fixations
 
 Conditions:(a) saveFlag- 1 save, 0 do not save
 
 
 
-(15) **Run\_BackgroundRegions.m** - check if background regions are viewed below chance in the region analysis and objects analysis
+**1.3.4.15. Run\_BackgroundRegions.m** - check if background regions are viewed below chance in the region analysis and objects analysis
 
 
 
-#### Image analysis
+### 1.3.5. Image analysis
 
 This code creates the high level region and low level region maps for the region analysis for all images.
 
@@ -366,7 +366,7 @@ This code creates the high level region and low level region maps for the region
 
 FreeViewing\\ExpMain\\Analysis\\AnalysisCode\\ImageAnalysis
 
-(A) **Run\_CreateHighLevelMaps.m** - creates high level maps that define the high level regions in the region analysis.
+**1.3.5.1.** **Run\_CreateHighLevelMaps.m** - creates high level maps that define the high level regions in the region analysis.
 
 Conditions:
 
@@ -374,54 +374,60 @@ condition = 1 creates high level maps for the main analysis with the combined ob
 
 condition = 2 creates high level maps for the preregistration control with OSIE objects only, and non Mondrian fixation maps 	without blinks.
 
-(B) **Run\_CreateLowLevelMaps2.m** - creates low level maps type 2 that define the low level regions in the region analysis. The maps are created based on Itti \& Koch's saliency model from Smiler. These maps are used in the main analysis.
+**1.3.5.2.** **Run\_CreateLowLevelMaps2.m** - creates low level maps type 2 that define the low level regions in the region analysis. The maps are created based on Itti \& Koch's saliency model from Smiler. These maps are used in the main analysis.
 
-(C) **Run\_CreateLowLevelMaps1.m** - creates low level maps type 1 that define the low level regions in the region analysis. The maps are created based on Itti \& Koch's saliency model from saliencytoolbox. These maps are used in low level type 1 analysis.
+**1.3.5.3.** **Run\_CreateLowLevelMaps1.m** - creates low level maps type 1 that define the low level regions in the region analysis. The maps are created based on Itti \& Koch's saliency model from saliencytoolbox. These maps are used in low level type 1 analysis.
 
 #### 
 
-##### Data about packages and codes downloaded from the internet:
+### 1.4. Data about packages and codes downloaded from the internet:
 
-Location: FreeViewing\\ExpMain\\Analysis\\AnalysisFolders\\Code
+###### Location:
 
-**#breakxaxis**
+FreeViewing\\ExpMain\\Analysis\\AnalysisFolders\\Code
+
+**1.4.1. breakxaxis**
 code for creating a break in the x axis in a plot for better visualization.
 Peter, Break X Axis . MATLAB Central File Exchange (2024).
 https://www.mathworks.com/matlabcentral/fileexchange/42905-break-x-axis.
 
-**#Itti\&Koch\_WalthersSaliencyToolbox\_L**
-Sailencytoolbox used to create low level regions for the region analysis in low level type 1 control analysis, based on Itti\&Koch's saliency 	model.
-Version 2.3 is used.
+**1.4.2.** **Itti\&Koch\_WalthersSaliencyToolbox\_L**
+Sailencytoolbox used to create low level regions for the region analysis in low level type 1 control analysis, based on Itti\&Koch's saliency model. Version 2.3 is used. 
+
 D. Walther, C. Koch, Modeling attention to salient proto-objects. Neural Networks 19,  1395–1407 (2006).
 
-**#myBinomTest**
+**1.4.3. myBinomTest**
 code for calculating a binomial test, used to test the accuracy in the objective awareness test with a binomial distribution.
-Matthew Nelson, myBinomTest(s,n,p,Sided) . MATLAB Central File Exchange (2022). 	https://www.mathworks.com/matlabcentral/fileexchange/24813-	mybinomtest-s-n-p-sided.
 
-**#RainCloudPlot**
-code for creating rain cloud plots
-M. Allen, D. Poggiali, K. Whitaker, T. R. Marshall, J. van Langen, R. A. Kievit, Raincloud plots: a multi-platform tool for 	robust data 	visualization. Wellcome Open Res 4 (2021).
+Matthew Nelson, myBinomTest(s,n,p,Sided). MATLAB Central File Exchange (2022). https://www.mathworks.com/matlabcentral/fileexchange/24813-mybinomtest-s-n-p-sided.
 
-In addition to downloading the rain cloud plots code, the following codes were also downloaded, and located in tutorial\_matlab 	folder:
+**1.4.4. RainCloudPlot**
+code for creating rain cloud plots.
+
+M. Allen, D. Poggiali, K. Whitaker, T. R. Marshall, J. van Langen, R. A. Kievit, Raincloud plots: a multi-platform tool for robust data visualization. Wellcome Open Res 4 (2021).
+
+In addition to downloading the rain cloud plots code, the following codes were also downloaded, and located in tutorial\_matlab folder:
+
 a. cbrewer: colorbrewer schemes for matlab
+
 from: https://uk.mathworks.com/matlabcentral/fileexchange/34087-cbrewer-colorbrewer-schemes-for-matlab
+
 b. Robust\_Statistical\_Toolbox
+
 from: https://github.com/CPernet/Robust\_Statistical\_Toolbox
 
-Inside the folder tutorial\_matlab I added the following codes: (based on existing codes)
+Inside the folder tutorial\_matlab I added the following codes (based on existing codes): raincloud\_plot\_big\_circles.m, rm\_raincloud\_dots\_different\_sizes.m, rm\_raincloud\_dots\_different\_sizes\_two\_groups.m
 
-1. raincloud\_plot\_big\_circles.m
-2. rm\_raincloud\_dots\_different\_sizes.m
+**1.4.5. Smiler**
 
-**#Smiler**
-toolbox used to create low level regions for the region analysis in the main analysis, based on Itti\&Koch's saliency model.
-C. Wloka, T. Kunić, I. Kotseruba, R. Fahimi, N. Frosst, N. D. B. Bruce, J. K. Tsotsos, SMILER: Saliency Model Implementation 	Library for 	Experimental Research. arXiv Prepr, doi: https://doi.org/10.48550/arXiv.1812.08848 (2018).
+toolbox used to create low level regions for the region analysis in the main analysis, based on Itti\&Koch's saliency model. 
 
-**#TreeBH**
-tree BH method for correcting for multiple comparisons in all the manuscript.
-This code is an in-house code used in Mudrik's lab.
+C. Wloka, T. Kunić, I. Kotseruba, R. Fahimi, N. Frosst, N. D. B. Bruce, J. K. Tsotsos, SMILER: Saliency Model Implementation Library for Experimental Research. arXiv Prepr, doi: https://doi.org/10.48550/arXiv.1812.08848 (2018).
 
-**#stdshade**
+**1.4.6. TreeBH**
+tree BH method for correcting for multiple comparisons in all the manuscript. This code is an in-house code used in Mudrik's lab.
+
+**1.4.7.stdshade**
 code for creating std shade in plots Simon Musall (2026). stdshade (https://www.mathworks.com/matlabcentral/fileexchange/29534-stdshade), MATLAB Central File Exchange. Retrieved April 5, 2026.
 
 
