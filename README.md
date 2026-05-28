@@ -177,7 +177,7 @@ More analyses for revision (run on both experiments together):
 
 
 
-##### Behavioral analysis
+#### Behavioral analysis
 
 This analysis checks awareness scores of all participants, calculates group level awareness, and save tables of the data.
 
@@ -208,58 +208,85 @@ Inside the folder BayesianAnalysis there are the Bayesian analysis calculations 
 (2) Running GBC and GBBayes tests on the behavioral data.
 Running the code: (a) Run GBC.R (b) then GBBayes.R (C) and finally GBCGBBayesScript.R
 
-(2) Running Bayesian parameter estimation analysis. 
-
-Running the code: Run BayesianParameterEstimationScript.R
+(2) Running Bayesian parameter estimation analysis. Running the code: Run BayesianParameterEstimationScript.R
 
 
 
-##### Analyses on both experiments
+#### Analyses on both experiments
 
-Create plots, calculate tree BH, saccadic rate analysis and other analysis described below.
-Location: FreeViewing\\ExpMain\\Analysis\\AnalysisCode\\ResultsAnalysis\\EyeTrackingAnalysis\\PlotsBothExperiments
+###### Location:
+
+FreeViewing\\ExpMain\\Analysis\\AnalysisCode\\ResultsAnalysis\\EyeTrackingAnalysis\\PlotsBothExperiments
 
 (1) Run\_AwarenessResultsExperiments.m - creates the awareness results figure.
+
 Conditions:
 (a) saveFlag- 1 save, 0 do not save
 
 
 
 (2) Run\_AwarenessResultsBPE.m - creates the Bayesian parameter estimation awareness results figure.
+
 Conditions:
 (a) saveFlag- 1 save, 0 do not save
 
 
 
-(3) Run\_EyeMovementResultsExperiments.m - create the object analysis, region analysis and emotional face attribute analysis results figures, and
-create tables summarizing effect sizes and p-values for all conditions except the main condition.
+(3) Run\_EyeMovementResultsExperiments.m - create the object analysis, region analysis and emotional face attribute analysis results figures, and create tables summarizing effect sizes and p-values for all conditions except the main condition.
+
 Conditions:
-(a) AnalysisType- 1 main analysis, 2 low level type 1 analysis, 3 RttM check analysis, 4 permutation check
+(a) AnalysisType- 
+
+1 main analysis 
+
+2 low level type 1 analysis 
+
+3 RttM check analysis 
+
+4 permutation check
+
 More analyses for revision:
+
 5 - conscious trials from unconscious and conscious sessions
+
 89 - analysis of exp 1\&2 8 right participants, 9 left participants (instead of experiment in the rows, it is dominant eye)
+
 11 - downsample number of trials according to the smaller visibility condition for each participant
+
 12 - downsample number of trials according to the smaller visibility condition for each image
+
 13 - free viewing data without a mask and conscious condition
+
 14 - pixel based classification to objects and regions
+
 15 - first saccade analysis
+
 17 - classification to objects and regions based on 50% overlap and above
+
 (b) saveFlag- 1 save, 0 do not save
 
 
 
 (4) Run\_CNNResults.m - create the CNN results figures, and create tables summarizing effect sizes and p-values for all conditions except the main condition.
+
 Conditions:
+
 (a) AnalysisType-
+
 1 - main analysis
+
 3 - RttM check analysis
+
 More analyses for revision:
+
 5 - conscious trials from unconscious and conscious sessions
-89 - fig 1 only right dominant eye participants included from both experiments
-fig 2 only left dominant eye participants included from both experiments
-1112 - fig 1 downsample number of trials according to the smaller visibility condition for each participant from both 	experiments
-fig 2: downsample number of trials according to the smaller visibility condition for each image from both experiments
+
+89 - fig 1 only right dominant eye participants included from both experiments. fig 2 only left dominant eye participants included from both experiments
+
+1112 - fig 1 downsample number of trials according to the smaller visibility condition for each participant from both experiments. fig 2: downsample number of trials according to the smaller visibility condition for each image from both experiments
+
 13 - free viewing data without a mask and conscious condition from both experiments
+
 (b)saveFlag- 1 save, 0 do not save
 
 
