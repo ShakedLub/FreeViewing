@@ -4,11 +4,15 @@ Preprint: https://doi.org/10.31234/osf.io/x8eaz
 
 
 
-#### ExpMain: Main experiment, includes Experiment 1 and Experiment 2 (replication)
+## ExpMain: Main experiment 
+
+Includes Experiment 1 and Experiment 2 (replication).
+
+All analyses were run on Matlab 2018B, except for the CNN analysis which was conducted on Matlab 2023A.
 
 #### &#x20;
 
-#### &#x20;Before running
+### Before running
 
 If you are downloading from OSF:
 
@@ -19,6 +23,8 @@ a.
 b.
 
 &#x20;
+
+
 If you are downloading from GitHub:
 
 Download the following folders from OSF (from the ExpMain folder) (https:/osf.io/b5ntv/)
@@ -27,15 +33,9 @@ a. Locate the Raw Data folder inside FreeViewing\\ExpMain
 
 b. Locate the ResultsStructs folder inside FreeViewing\\ExpMain\\Analysis\\AnalysisFolders\\
 
-#### 
-
-#### &#x20; Running the code:
-
-&#x20; All analyses were run on Matlab 2018B, except for the CNN analysis which was conducted on Matlab 2023A.
 
 
-
-#### &#x20; Experimental code:
+### Experimental code:
 
 Location: FreeViewing\\ExpMain\\Experiment\\RUN\_ME\\Code
 
@@ -62,19 +62,23 @@ Choose "restart trials on fixation break".
 
 &#x20;
 
-#### &#x20; Analysis code:
+### Analysis code:
 
-##### Eye tracking analysis
+#### Eye tracking analysis
 
 This analysis arranges the eye tracking data, and then calculates the object analysis, region analysis and 
 
 emotional face attribute analysis.
 
-Location: FreeViewing\\ExpMain\\Analysis\\AnalysisCode\\ResultsAnalysis\\EyeTrackingAnalysis
+###### Location: 
 
-Run the code by running the script: Run\_analysis\_images.m in the command window
+FreeViewing\\ExpMain\\Analysis\\AnalysisCode\\ResultsAnalysis\\EyeTrackingAnalysis
 
-Conditions:
+###### Running the code: 
+
+Run\_analysis\_images.m in the command window
+
+###### Conditions:
 
 (a) saveFlag: 0 do not save, 1 save
 
@@ -128,12 +132,20 @@ More analyses for revision:
 
 
 
-##### CNN analysis
+#### CNN analysis
 
 This analysis calculates the RSA analysis, comparing fixation maps in both visibility conditions to the activations of the CNN.
-Location: FreeViewing\\ExpMain\\Analysis\\AnalysisCode\\ResultsAnalysis\\CNNAnalysis
-Run the code by running the script: Run.m in the command window
-Conditions:
+
+###### Location: 
+
+FreeViewing\\ExpMain\\Analysis\\AnalysisCode\\ResultsAnalysis\\CNNAnalysis
+
+###### Running the code:
+
+Run.m in the command window
+
+###### Conditions:
+
 (a) saveFlag: 0 do not save, 1 save
 (b) experiment\_number: '1' for experiment 1, '2' for experiment 2, '12' for combined data from
 experiment 1 and 2 (this number should be given as a char)
