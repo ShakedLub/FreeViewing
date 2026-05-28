@@ -10,11 +10,21 @@ Preprint: https://doi.org/10.31234/osf.io/x8eaz
 
 #### &#x20;Before running
 
-&#x20;
-If you are downloading the code from GitHub download the following ExpMain folders from OSF (https:/osf.io/b5ntv/)
+If you are downloading from OSF:
 
-&#x20; (if you are downloading everything from OSF skip this part):
+Unzip the following folders:
+
+a.
+
+b.
+
+&#x20;
+If you are downloading from GitHub:
+
+Download the following folders from OSF (from the ExpMain folder) (https:/osf.io/b5ntv/)
+
 a. Locate the Raw Data folder inside FreeViewing\\ExpMain  
+
 b. Locate the ResultsStructs folder inside FreeViewing\\ExpMain\\Analysis\\AnalysisFolders\\
 
 #### 
@@ -27,18 +37,27 @@ b. Locate the ResultsStructs folder inside FreeViewing\\ExpMain\\Analysis\\Analy
 
 #### &#x20; Experimental code:
 
-&#x20; The experimental code can be found in:
-FreeViewing\\ExpMain\\Experiment\\RUN\_ME\\Code
+Location: FreeViewing\\ExpMain\\Experiment\\RUN\_ME\\Code
+
 a. Run Run\_BuildImageOrder() in the command window, in order to create ExpDesignAllSubjects.mat that has
 trial randomization for all participants in advance.
+
 b. In Run\_FV\_CFS.m change parameters:
+
 DEBUG\_CODE=0; (1 run with debugging, 0 run without debugging)
+
 WANTED\_FPS=100; %Hz (change according to your screens refresh rate)
+
 c. Run the code by running the function: Run\_FV\_CFS(1) in the command window.
+
 Comments:
--Psychtoolbox should be installed to run the code
--To run the code without the eye tracker do not change anything in the GUI
--To run the code with an eye tracker change in the GUI: Eye tracking method: eye tracker,
+
+\-Psychtoolbox should be installed to run the code
+
+\-To run the code without the eye tracker do not change anything in the GUI
+
+\-To run the code with an eye tracker change in the GUI: Eye tracking method: eye tracker,
+
 Choose "restart trials on fixation break".
 
 &#x20;
@@ -47,34 +66,60 @@ Choose "restart trials on fixation break".
 
 ##### Eye tracking analysis
 
-This analysis arranges the eye tracking data, and then calculates the object analysis, region analysis and
+This analysis arranges the eye tracking data, and then calculates the object analysis, region analysis and 
+
 emotional face attribute analysis.
+
 Location: FreeViewing\\ExpMain\\Analysis\\AnalysisCode\\ResultsAnalysis\\EyeTrackingAnalysis
+
 Run the code by running the script: Run\_analysis\_images.m in the command window
+
 Conditions:
+
 (a) saveFlag: 0 do not save, 1 save
+
 (b) experiment\_number: '1' for experiment 1, '2' for experiment 2 (this number should be given as a char)
+
 (c) condition:
+
 1 - main analysis
+
 2 - preregistration check: this control analysis is done because we applied some deviations fron the preregistration.
+
 This analysis is without these changes: (1) In the main analysis low level type 2 regions are used (created using smiler 	package), in this analysis low level type 1 regions are used(created using the saliencytoolbox). (2) In this analysis trials 	with blinks are excluded, in the main analysis they are included. (3) In this analysis objects are defined only based on the 	OSIE database. In the main analysis objects are defined based on a combination of OSIE and Broda and de Haas's database. (4) 	Two images that were excluded from the main analysis, are included here.
+
 3 - RttM check: in this control analysis, participants with high objective awareness scores are excluded to check if the 	results stem from RttM (see manuscript).
+
 4 - Permutation check: this permutation check maintains the trial's viewing sequence, and randomize fixations between images.
 Therefore this analysis takes into account that participants fixations have a clustered viewing structure.
 More analyses for revision:
+
 5 - conscious trials from unconscious and conscious sessions
+
 6 - only right dominant eye participants included
+
 7 - only left dominant eye participants included
+
 8 - only right dominant eye participants included, both experiments analyzed together
+
 9 - only left dominant eye participants included, both experiments analyzed together
+
 10 - jackknife analysis
+
 11 - downsample number of trials according to the smaller visibility condition for each participant
+
 12 - downsample number of trials according to the smaller visibility condition for each image
+
 13 - free viewing data without a mask
+
 14 - pixel based classification to objects
+
 15 - first saccade analysis
+
 16 - create table for control analysis with mixed effects model
+
 17 - classification to objects based on 50% overlap and above
+
 18 - calculate percent overlap between object classified and circle around fixation
 
 19 - check power of 14 participants with right dominant eye, by sampling randomly 14 participants from this group from both experiments
