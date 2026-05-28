@@ -350,19 +350,22 @@ Chose "restart trials on fixation break".
 &#x20; This code arranges the eye tracking data, and then creates fixation maps for each image, that are used to define
 high-level and High \& low regions in the region analysis.
 This code is also used to create fixation data for free viewing analysis.
+
 Location: FreeViewing\\ExpNoMondrian\\Analysis\\Analysis Code\\ResultsAnalysis\\EyeTrackingAnalysis
 
-* Run the code by running the script: Run.m in the command window
+a. Run the code by running the script: Run.m in the command window
+
 Conditions:
 (a) saveFlag (1 save, 0 do not save).
 (b) condition (1 : main analysis, 2: preregistration control, 3: data for free viewing analysis, without fixations in center)
-* Create plot by running the script: Run\_Plot.m in the command window
+
+b. Create plot by running the script: Run\_Plot.m in the command window
 
 
 
 #### Order of running all analyses (creating all results structs and fixation maps):
 
-  (1) Run Run\_AnalyzeBehavior.m in BehavioralAnalysis in ExpMain folder.
+(1) Run Run\_AnalyzeBehavior.m in BehavioralAnalysis in ExpMain folder.
 (2) Run Run.m in EyeTrackingAnalysis in ExpNoMondrian folder, one time for each condition (1 main analysis, 2 preregistration check, 3 free viewing analysis), to create fixation maps for each image from the data of the experiment without Mondrians. These fixation maps are used to define high-level and High \& low regions in the region analysis. Condition 3 is for the free viewing analysis.
 (3) Create region maps in ImageAnalysis in ExpMain folder (the order of creating the regions is important):
 create low level regions type 1: Run\_CreateLowLevelMaps1.m
