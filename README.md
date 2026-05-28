@@ -4,7 +4,7 @@ Preprint: https://doi.org/10.31234/osf.io/x8eaz
 
 
 
-## ExpMain: Main experiment 
+## ExpMain: Main experiment
 
 Includes Experiment 1 and Experiment 2 (replication).
 
@@ -14,7 +14,7 @@ All analyses were run on Matlab 2018B, except for the CNN analysis which was con
 
 ### Before running
 
-If you are downloading from OSF:
+###### If you are downloading from OSF:
 
 Unzip the following folders:
 
@@ -25,11 +25,12 @@ b.
 &#x20;
 
 
-If you are downloading from GitHub:
+
+###### If you are downloading from GitHub:
 
 Download the following folders from OSF (from the ExpMain folder) (https:/osf.io/b5ntv/)
 
-a. Locate the Raw Data folder inside FreeViewing\\ExpMain  
+a. Locate the Raw Data folder inside FreeViewing\\ExpMain
 
 b. Locate the ResultsStructs folder inside FreeViewing\\ExpMain\\Analysis\\AnalysisFolders\\
 
@@ -37,7 +38,7 @@ b. Locate the ResultsStructs folder inside FreeViewing\\ExpMain\\Analysis\\Analy
 
 ### Experimental code:
 
-###### Location: 
+###### Location:
 
 FreeViewing\\ExpMain\\Experiment\\RUN\_ME\\Code
 
@@ -70,15 +71,13 @@ Choose "restart trials on fixation break".
 
 #### Eye tracking analysis
 
-This analysis arranges the eye tracking data, and then calculates the object analysis, region analysis and 
+This analysis arranges the eye tracking data, and then calculates the object analysis, region analysis and emotional face attribute analysis.
 
-emotional face attribute analysis.
-
-###### Location: 
+###### Location:
 
 FreeViewing\\ExpMain\\Analysis\\AnalysisCode\\ResultsAnalysis\\EyeTrackingAnalysis
 
-###### Running the code: 
+###### Running the code:
 
 Run\_analysis\_images.m in the command window
 
@@ -98,6 +97,7 @@ Run\_analysis\_images.m in the command window
 
 4 - Permutation check: this permutation check maintains the trial's viewing sequence, and randomize fixations between images.
 Therefore this analysis takes into account that participants fixations have a clustered viewing structure.
+
 More analyses for revision:
 
 5 - conscious trials from unconscious and conscious sessions
@@ -138,7 +138,7 @@ More analyses for revision:
 
 This analysis calculates the RSA analysis, comparing fixation maps in both visibility conditions to the activations of the CNN.
 
-###### Location: 
+###### Location:
 
 FreeViewing\\ExpMain\\Analysis\\AnalysisCode\\ResultsAnalysis\\CNNAnalysis
 
@@ -149,18 +149,30 @@ Run.m in the command window
 ###### Conditions:
 
 (a) saveFlag: 0 do not save, 1 save
+
 (b) experiment\_number: '1' for experiment 1, '2' for experiment 2, '12' for combined data from
 experiment 1 and 2 (this number should be given as a char)
+
 (c) condition:
+
 1 - main analysis  
+
 3 - RttM check: control analysis see explanation above.
+
 More analyses for revision (run on both experiments together):
+
 5 - conscious trials from unconscious and conscious sessions
+
 8 - only right dominant eye participants included
+
 9 - only left dominant eye participants included
+
 10 - jackknife analysis
+
 11 - downsample number of trials according to the smaller visibility condition for each participant
+
 12 - downsample number of trials according to the smaller visibility condition for each image
+
 13 - compares conscious condition to free viewing data without a mask
 
 
@@ -180,17 +192,25 @@ Run\_AnalyzeBehavior.m in the command window
 ###### Conditions:
 
 (a) saveFlag: 0 do not save, 1 save
+
 (b) experiment\_number: '1' for experiment 1, '2' for experiment 2 (this number should be given as a char)
 
-###### Comments:
+###### More analyses:
 
-* Inside the folder BayesianAnalysis there are calculations in JASP of the Bayesian analysis
-* Inside the folder AnalysisR there is:
+* Bayesian analysis: 
 
-(1) Code for running GBC and GBBayes tests on the behavioral data.
-Running the code: (a) GBC.R (b) then GBBayes.R (C) and finally GBCGBBayesScript.R
+Inside the folder BayesianAnalysis there are the Bayesian analysis calculations in JASP.
 
-(2) Code for running Bayesian parameter estimation analysis BayesianParameterEstimationScript.R
+* GBC, GB-Bayes and Bayesian parameter estimation analyses:
+
+(1) Open the R project AnalysisR.Rproj
+
+(2) Running GBC and GBBayes tests on the behavioral data.
+Running the code: (a) Run GBC.R (b) then GBBayes.R (C) and finally GBCGBBayesScript.R
+
+(2) Running Bayesian parameter estimation analysis. 
+
+Running the code: Run BayesianParameterEstimationScript.R
 
 
 
