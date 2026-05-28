@@ -4,7 +4,7 @@ Preprint: https://doi.org/10.31234/osf.io/x8eaz
 
 
 
-1. # ExpMain: Main experiment
+# 1.ExpMain: Main experiment
 
 Includes Experiment 1 and Experiment 2 (replication).
 
