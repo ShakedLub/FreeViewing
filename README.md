@@ -37,7 +37,11 @@ b. Locate the ResultsStructs folder inside FreeViewing\\ExpMain\\Analysis\\Analy
 
 ### Experimental code:
 
-Location: FreeViewing\\ExpMain\\Experiment\\RUN\_ME\\Code
+###### Location: 
+
+FreeViewing\\ExpMain\\Experiment\\RUN\_ME\\Code
+
+###### Running the code:
 
 a. Run Run\_BuildImageOrder() in the command window, in order to create ExpDesignAllSubjects.mat that has
 trial randomization for all participants in advance.
@@ -50,7 +54,7 @@ WANTED\_FPS=100; %Hz (change according to your screens refresh rate)
 
 c. Run the code by running the function: Run\_FV\_CFS(1) in the command window.
 
-Comments:
+###### Comments:
 
 \-Psychtoolbox should be installed to run the code
 
@@ -164,16 +168,28 @@ More analyses for revision (run on both experiments together):
 ##### Behavioral analysis
 
 This analysis checks awareness scores of all participants, calculates group level awareness, and save tables of the data.
-Location: FreeViewing\\ExpMain\\Analysis\\AnalysisCode\\ResultsAnalysis\\BehavioralAnalysis
-Run the code by running the script: Run\_AnalyzeBehavior.m in the command window
-Conditions:
+
+###### Location:
+
+FreeViewing\\ExpMain\\Analysis\\AnalysisCode\\ResultsAnalysis\\BehavioralAnalysis
+
+###### Running the code:
+
+Run\_AnalyzeBehavior.m in the command window
+
+###### Conditions:
+
 (a) saveFlag: 0 do not save, 1 save
 (b) experiment\_number: '1' for experiment 1, '2' for experiment 2 (this number should be given as a char)
 
+###### Comments:
+
 * Inside the folder BayesianAnalysis there are calculations in JASP of the Bayesian analysis
 * Inside the folder AnalysisR there is:
+
 (1) Code for running GBC and GBBayes tests on the behavioral data.
-Run: (a) GBC.R (b) then GBBayes.R (C) and finally GBCGBBayesScript.R
+Running the code: (a) GBC.R (b) then GBBayes.R (C) and finally GBCGBBayesScript.R
+
 (2) Code for running Bayesian parameter estimation analysis BayesianParameterEstimationScript.R
 
 
