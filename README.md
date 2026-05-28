@@ -88,11 +88,9 @@ Run\_analysis\_images.m in the command window
 
 1 - main analysis
 
-2 - preregistration check: this control analysis is done because we applied some deviations fron the preregistration.
+2 - preregistration check: this control analysis is done because we applied some deviations from the preregistration. This analysis is without these changes: (1) In the main analysis low level type 2 regions are used (created using smiler package), in this analysis low level type 1 regions are used(created using the saliencytoolbox). (2) In this analysis trials 	with blinks are excluded, in the main analysis they are included. (3) In this analysis objects are defined only based on the 	OSIE database. In the main analysis objects are defined based on a combination of OSIE and Broda and de Haas's database. (4) Two images that were excluded from the main analysis, are included here.
 
-This analysis is without these changes: (1) In the main analysis low level type 2 regions are used (created using smiler 	package), in this analysis low level type 1 regions are used(created using the saliencytoolbox). (2) In this analysis trials 	with blinks are excluded, in the main analysis they are included. (3) In this analysis objects are defined only based on the 	OSIE database. In the main analysis objects are defined based on a combination of OSIE and Broda and de Haas's database. (4) 	Two images that were excluded from the main analysis, are included here.
-
-3 - RttM check: in this control analysis, participants with high objective awareness scores are excluded to check if the 	results stem from RttM (see manuscript).
+3 - RttM check: in this control analysis, participants with high objective awareness scores are excluded to check if the results stem from RttM (see manuscript).
 
 4 - Permutation check: this permutation check maintains the trial's viewing sequence, and randomize fixations between images.
 Therefore this analysis takes into account that participants fixations have a clustered viewing structure.
