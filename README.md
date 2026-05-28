@@ -358,26 +358,25 @@ Conditions:(a) saveFlag- 1 save, 0 do not save
 
 
 
-##### Image analysis
+#### Image analysis
 
 This code creates the high level region and low level region maps for the region analysis for all images.
-Location: FreeViewing\\ExpMain\\Analysis\\AnalysisCode\\ImageAnalysis
 
-(A) Run\_CreateHighLevelMaps.m - creates high level maps that define the semantically salient regions
-(high level regions) in the region analysis.
+###### Location: 
+
+FreeViewing\\ExpMain\\Analysis\\AnalysisCode\\ImageAnalysis
+
+(A) **Run\_CreateHighLevelMaps.m** - creates high level maps that define the high level regions in the region analysis.
+
 Conditions:
+
 condition = 1 creates high level maps for the main analysis with the combined objects database.
+
 condition = 2 creates high level maps for the preregistration control with OSIE objects only, and non Mondrian fixation maps 	without blinks.
 
-(B) Run\_CreateLowLevelMaps2.m - creates low level maps type 2 that define the visually salient regions
-(low level regions) in the region analysis. The maps are created based on
-Itti \& Koch's saliency model from Smiler. These maps are used in the main
-analysis.
+(B) **Run\_CreateLowLevelMaps2.m** - creates low level maps type 2 that define the low level regions in the region analysis. The maps are created based on Itti \& Koch's saliency model from Smiler. These maps are used in the main analysis.
 
-(C) Run\_CreateLowLevelMaps1.m - creates low level maps type 1 that define the visually salient regions
-(low level regions) in the region analysis. The maps are created based on
-Itti \& Koch's saliency model from saliencytoolbox. These maps are used in
-low level type 1 analysis.
+(C) **Run\_CreateLowLevelMaps1.m** - creates low level maps type 1 that define the low level regions in the region analysis. The maps are created based on Itti \& Koch's saliency model from saliencytoolbox. These maps are used in low level type 1 analysis.
 
 #### 
 
