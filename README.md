@@ -61,9 +61,7 @@ c. Run the code by running the function: Run\_FV\_CFS(1) in the command window.
 
 \-To run the code without the eye tracker do not change anything in the GUI
 
-\-To run the code with an eye tracker change in the GUI: Eye tracking method: eye tracker,
-
-Choose "restart trials on fixation break".
+\-To run the code with an eye tracker change in the GUI: Eye tracking method: eye tracker, Choose "restart trials on fixation break".
 
 &#x20;
 
@@ -388,6 +386,7 @@ FreeViewing\\ExpMain\\Analysis\\AnalysisFolders\\Code
 
 **1.4.1. breakxaxis**
 code for creating a break in the x axis in a plot for better visualization.
+
 Peter, Break X Axis . MATLAB Central File Exchange (2024).
 https://www.mathworks.com/matlabcentral/fileexchange/42905-break-x-axis.
 
@@ -425,75 +424,107 @@ toolbox used to create low level regions for the region analysis in the main ana
 C. Wloka, T. Kunić, I. Kotseruba, R. Fahimi, N. Frosst, N. D. B. Bruce, J. K. Tsotsos, SMILER: Saliency Model Implementation Library for Experimental Research. arXiv Prepr, doi: https://doi.org/10.48550/arXiv.1812.08848 (2018).
 
 **1.4.6. TreeBH**
+
 tree BH method for correcting for multiple comparisons in all the manuscript. This code is an in-house code used in Mudrik's lab.
 
 **1.4.7.stdshade**
+
 code for creating std shade in plots Simon Musall (2026). stdshade (https://www.mathworks.com/matlabcentral/fileexchange/29534-stdshade), MATLAB Central File Exchange. Retrieved April 5, 2026.
 
 
 
-#### Non-Mondrian experiment
+# 2\. Non-Mondrian experiment
+
+All analyses were run on Matlab 2018B
+
+### 2.1. Before running
+
+###### If you are downloading from OSF:
+
+Unzip the following folders:
+
+a.
+
+b.
+
+&#x20;
 
 
 
-#### Before running
+###### If you are downloading from GitHub:
 
-If you are downloading the code from GitHub download the following ExpNoMondrian folders from OSF (https://osf.io/b5ntv/):
+Download the following folders from OSF (from the ExpNoMondrian folder) (https:/osf.io/b5ntv/)
 
-(if you are downloading everything from OSF skip this part):
-a. Locate the Raw Data folder inside FreeViewing\\ExpNoMondrian  
+a. Locate the Raw Data folder inside FreeViewing\\ExpNoMondrian
+
 b. Locate the ResultsStructs folder inside FreeViewing\\ExpNoMondrian\\Analysis\\AnalysisFolders\\
 
 
 
-#### Running the code:
+### 2.2. Experimental code:
 
-All analyses were run on Matlab 2018B
+###### Location:
 
-##### &#x20;
+FreeViewing\\ExpNoMondrian\\Experiment\\RUN\_ME\\Code
 
-#### &#x20;Experimental code:
+###### Running the code:
 
-&#x20; Location: FreeViewing\\ExpNoMondrian\\Experiment\\RUN\_ME\\Code
 a. In Run\_FV\_CFS\_NM.m change parameters:
 DEBUG\_CODE=0; (1 run with debugging, 0 run without debugging)
-b. Run the code by running the function: Run\_FV\_CFS\_NM(1) in the command window Comments:
--Psychtoolbox should be installed to run the code
+
+b. Run the code by running the function: Run\_FV\_CFS\_NM(1) in the command window. 
+
+###### Comments:
+
+\-Psychtoolbox should be installed to run the code
 -To run the code without the eye tracker do not change anything in the Gui
--To run the code with an eye tracker change in the gui: Eye tracking method: eye tracker,
-Chose "restart trials on fixation break".
+-To run the code with an eye tracker change in the gui: Eye tracking method: eye tracker, Chose "restart trials on fixation break".
 
 
 
-#### &#x20;Analysis code:
+### 2.3. Analysis code:
 
-&#x20; This code arranges the eye tracking data, and then creates fixation maps for each image, that are used to define
-high-level and High \& low regions in the region analysis.
-This code is also used to create fixation data for free viewing analysis.
+This code arranges the eye tracking data, and then creates fixation maps for each image, that are used to define high-level and High \& low regions in the region analysis. This code is also used to create fixation data for free viewing analysis.
 
-Location: FreeViewing\\ExpNoMondrian\\Analysis\\Analysis Code\\ResultsAnalysis\\EyeTrackingAnalysis
+###### Location:
+
+FreeViewing\\ExpNoMondrian\\Analysis\\Analysis Code\\ResultsAnalysis\\EyeTrackingAnalysis
+
+###### Running the code:
 
 a. Run the code by running the script: Run.m in the command window
 
 Conditions:
+
 (a) saveFlag (1 save, 0 do not save).
+
 (b) condition (1 : main analysis, 2: preregistration control, 3: data for free viewing analysis, without fixations in center)
 
 b. Create plot by running the script: Run\_Plot.m in the command window
 
 
 
-#### Order of running all analyses (creating all results structs and fixation maps):
+### 3\. Order of running all analyses (creating all results structs and fixation maps):
 
 (1) Run Run\_AnalyzeBehavior.m in BehavioralAnalysis in ExpMain folder.
+
 (2) Run Run.m in EyeTrackingAnalysis in ExpNoMondrian folder, one time for each condition (1 main analysis, 2 preregistration check, 3 free viewing analysis), to create fixation maps for each image from the data of the experiment without Mondrians. These fixation maps are used to define high-level and High \& low regions in the region analysis. Condition 3 is for the free viewing analysis.
+
 (3) Create region maps in ImageAnalysis in ExpMain folder (the order of creating the regions is important):
-create low level regions type 1: Run\_CreateLowLevelMaps1.m
-create high level regions: Run\_CreateHighLevelMaps.m one time for each condition (1 main analysis, 2 preregistration check)
-create low level regions type 2: Run\_CreateLowLevelMaps2.m
-(4) Run Run\_analysis\_images.m in EyeTrackingAnalysis in ExpMain folder, with the wanted condition  (1 main analysis, 2 preregistration check, 3 RttM check,   4 permutation check and so on), to run the region and object analysis.
+
+a. create low level regions type 1: Run\_CreateLowLevelMaps1.m
+
+b. create high level regions: Run\_CreateHighLevelMaps.m one time for each condition (1 main analysis, 2 preregistration check)
+
+c. create low level regions type 2: Run\_CreateLowLevelMaps2.m
+
+(4) Run Run\_analysis\_images.m in EyeTrackingAnalysis in ExpMain folder, with the wanted condition  (1 main analysis, 2 preregistration check, 3 RttM check, 4 permutation check and so on), to run the region and object analysis.
+
 (5) Run Run.m in CNNAnalysis in ExpMain folder, with the wanted condition (1 main analysis, 3 RttM check and so on), to run the CNN analysis.
+
 (6) Run Run\_TreeBHAllExperimentsWithCNN.m in PlotsBothExperiments in EyeTrackingAnalysis in ExpMain to create tree for pvalue correction.
+
 (7) All other analyses in PlotsBothExperiments depend on all the data created above.
+
 (8) Awareness analyses in R are based on tables created in step (1).
 
