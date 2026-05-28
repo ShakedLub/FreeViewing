@@ -10,8 +10,8 @@ Preprint: https://doi.org/10.31234/osf.io/x8eaz
 
 #### &#x20;Before running
 
-&#x20; 
-  If you are downloading the code from GitHub download the following ExpMain folders from OSF (https:/osf.io/b5ntv/)
+&#x20;
+If you are downloading the code from GitHub download the following ExpMain folders from OSF (https:/osf.io/b5ntv/)
 
 &#x20; (if you are downloading everything from OSF skip this part):
 a. Locate the Raw Data folder inside FreeViewing\\ExpMain  
@@ -312,7 +312,7 @@ code for creating std shade in plots Simon Musall (2026). stdshade (https://www.
 
 
 
-#### Exp 2: Non-Mondrian experiment
+#### Non-Mondrian experiment
 
 
 
@@ -360,7 +360,7 @@ Conditions:
 
 
 
-  ##### Order of running all analyses (creating all results structs and fixation maps):
+#### Order of running all analyses (creating all results structs and fixation maps):
 
   (1) Run Run\_AnalyzeBehavior.m in BehavioralAnalysis in ExpMain folder.
 (2) Run Run.m in EyeTrackingAnalysis in ExpNoMondrian folder, one time for each condition (1 main analysis, 2 preregistration check, 3 free viewing analysis), to create fixation maps for each image from the data of the experiment without Mondrians. These fixation maps are used to define high-level and High \& low regions in the region analysis. Condition 3 is for the free viewing analysis.
