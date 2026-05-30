@@ -14,7 +14,7 @@ All analyses were run on Matlab 2018B, except for the CNN analysis which was con
 
 ### 1.1. Before running
 
-###### If you are downloading from OSF:
+###### **If you are downloading from OSF:**
 
 a. Download all folders inside 'ExpMain'
 
@@ -23,14 +23,7 @@ b. Unzip the following folders:
 1. 'Analysis.zip' 
 2. 'Experiment.zip'
 
-3\. 'Raw Data' folder: Inside it unzip 'Behavioral.zip' folder. 
-Inside 'ExpMain\\Raw Data\\DataPileups' folder unzip 'Experiment 1.zip' and 'Experiment 2.zip' folders. 
-
-Inside 'ExpMain\\Raw Data\\EyeTracker' unzip 'Original EDF files.zip' folder. 
-
-Inside 'ExpMain\\Raw Data\\EyeTracker\\Extracted files' folder unzip 'Experiment 1.zip' and 'Experiment 2.zip' folders.
-
-Locate the 'Raw Data' folder inside 'FreeViewing\\ExpMain'.
+3\. 'Raw Data' folder: Inside it unzip 'Behavioral.zip' folder. Inside 'ExpMain\\Raw Data\\DataPileups' folder unzip 'Experiment 1.zip' and 'Experiment 2.zip' folders. Inside 'ExpMain\\Raw Data\\EyeTracker' unzip 'Original EDF files.zip' folder. Inside 'ExpMain\\Raw Data\\EyeTracker\\Extracted files' folder unzip 'Experiment 1.zip' and 'Experiment 2.zip' folders. Locate the 'Raw Data' folder inside 'FreeViewing\\ExpMain'.
 
 4\. ResultsStructs folder: Inside it unzip 'Experiment1ResultsStructs.zip' folder, 'Experiment2ResultsStructs.zip' folder and 'MoreResultsStructs.zip' folder. All the data (files and folders) inside these 3 folders put together in 'ResultsStructs' folder (without the partition to 3 folders), and Locate the 'ResultsStructs' folder inside 'FreeViewing\\ExpMain\\Analysis\\AnalysisFolders'.
 
@@ -38,19 +31,13 @@ Locate the 'Raw Data' folder inside 'FreeViewing\\ExpMain'.
 
 
 
-###### If you are downloading from GitHub:
+###### **If you are downloading from GitHub:**
 
 a. Download the code from GitHub.
 
 b. Download from OSF (https:/osf.io/b5ntv/) from 'ExpMain' folder:
 
-1\. 'Raw Data' folder: Inside it unzip 'Behavioral.zip' folder.
-Inside 'ExpMain\\Raw Data\\DataPileups' folder unzip 'Experiment 1.zip' and 'Experiment 2.zip' folders.
-
-Inside 'ExpMain\\Raw Data\\EyeTracker' unzip 'Original EDF files.zip' folder.
-
-Inside 'ExpMain\\Raw Data\\EyeTracker\\Extracted files' folder unzip 'Experiment 1.zip' and 'Experiment 2.zip' folders.
-Locate the 'Raw Data' folder inside 'FreeViewing\\ExpMain'.
+1\. 'Raw Data' folder: Inside it unzip 'Behavioral.zip' folder. Inside 'ExpMain\\Raw Data\\DataPileups' folder unzip 'Experiment 1.zip' and 'Experiment 2.zip' folders. Inside 'ExpMain\\Raw Data\\EyeTracker' unzip 'Original EDF files.zip' folder. Inside 'ExpMain\\Raw Data\\EyeTracker\\Extracted files' folder unzip 'Experiment 1.zip' and 'Experiment 2.zip' folders. Locate the 'Raw Data' folder inside 'FreeViewing\\ExpMain'.
 
 2\. ResultsStructs folder: Inside it unzip 'Experiment1ResultsStructs.zip' folder, 'Experiment2ResultsStructs.zip' folder and 'MoreResultsStructs.zip' folder. All the data (files and folders) inside these 3 folders put together in 'ResultsStructs' folder (without the partition to 3 folders), and Locate the 'ResultsStructs' folder inside 'FreeViewing\\ExpMain\\Analysis\\AnalysisFolders'.
 
@@ -458,7 +445,7 @@ All analyses were run on Matlab 2018B
 
 ### 2.1. Before running
 
-###### If you are downloading from OSF:
+###### **If you are downloading from OSF:**
 
 a. Download all folders inside 'ExpNoMondrian' folder:
 
@@ -474,7 +461,7 @@ b. Unzip the following folders:
 
 
 
-###### If you are downloading from GitHub:
+###### **If you are downloading from GitHub:**
 
 a. Download the code from GitHub.
 
