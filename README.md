@@ -14,7 +14,7 @@ All analyses were run on Matlab 2018B, except for the CNN analysis which was con
 
 ### 1.1. Before running
 
-###### **If you are downloading from OSF:**
+##### If you are downloading from OSF:
 
 a. Download all folders inside 'ExpMain'
 
@@ -29,9 +29,7 @@ b. Unzip the following folders:
 
 &#x20;
 
-
-
-###### **If you are downloading from GitHub:**
+##### If you are downloading from GitHub:
 
 a. Download the code from GitHub.
 
@@ -445,7 +443,7 @@ All analyses were run on Matlab 2018B
 
 ### 2.1. Before running
 
-###### **If you are downloading from OSF:**
+##### If you are downloading from OSF:
 
 a. Download all folders inside 'ExpNoMondrian' folder:
 
@@ -461,7 +459,7 @@ b. Unzip the following folders:
 
 
 
-###### **If you are downloading from GitHub:**
+##### If you are downloading from GitHub:
 
 a. Download the code from GitHub.
 
@@ -518,7 +516,7 @@ b. Create plot by running the script: Run\_Plot.m in the command window
 
 
 
-### 3\. Order of running all analyses (creating all results structs and fixation maps):
+# 3\. Order of running all analyses (creating all results structs and fixation maps):
 
 (1) Run Run\_AnalyzeBehavior.m in BehavioralAnalysis in ExpMain folder.
 
