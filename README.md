@@ -16,11 +16,23 @@ All analyses were run on Matlab 2018B, except for the CNN analysis which was con
 
 ###### If you are downloading from OSF:
 
-Unzip the following folders:
+a. Download all folders inside 'ExpMain'
 
-a.
+b. Unzip the following folders:
 
-b.
+1. 'Analysis.zip' 
+2. 'Experiment.zip'
+
+3\. 'Raw Data' folder: Inside it unzip 'Behavioral.zip' folder. 
+Inside 'ExpMain\\Raw Data\\DataPileups' folder unzip 'Experiment 1.zip' and 'Experiment 2.zip' folders. 
+
+Inside 'ExpMain\\Raw Data\\EyeTracker' unzip 'Original EDF files.zip' folder. 
+
+Inside 'ExpMain\\Raw Data\\EyeTracker\\Extracted files' folder unzip 'Experiment 1.zip' and 'Experiment 2.zip' folders.
+
+Locate the 'Raw Data' folder inside 'FreeViewing\\ExpMain'.
+
+4\. ResultsStructs folder: Inside it unzip 'Experiment1ResultsStructs.zip' folder, 'Experiment2ResultsStructs.zip' folder and 'MoreResultsStructs.zip' folder. All the data (files and folders) inside these 3 folders put together in 'ResultsStructs' folder (without the partition to 3 folders), and Locate the 'ResultsStructs' folder inside 'FreeViewing\\ExpMain\\Analysis\\AnalysisFolders'.
 
 &#x20;
 
@@ -28,11 +40,19 @@ b.
 
 ###### If you are downloading from GitHub:
 
-Download the following folders from OSF (from the ExpMain folder) (https:/osf.io/b5ntv/)
+a. Download the code from GitHub.
 
-a. Locate the Raw Data folder inside FreeViewing\\ExpMain
+b. Download from OSF (https:/osf.io/b5ntv/) from 'ExpMain' folder:
 
-b. Locate the ResultsStructs folder inside FreeViewing\\ExpMain\\Analysis\\AnalysisFolders\\
+1\. 'Raw Data' folder: Inside it unzip 'Behavioral.zip' folder.
+Inside 'ExpMain\\Raw Data\\DataPileups' folder unzip 'Experiment 1.zip' and 'Experiment 2.zip' folders.
+
+Inside 'ExpMain\\Raw Data\\EyeTracker' unzip 'Original EDF files.zip' folder.
+
+Inside 'ExpMain\\Raw Data\\EyeTracker\\Extracted files' folder unzip 'Experiment 1.zip' and 'Experiment 2.zip' folders.
+Locate the 'Raw Data' folder inside 'FreeViewing\\ExpMain'.
+
+2\. ResultsStructs folder: Inside it unzip 'Experiment1ResultsStructs.zip' folder, 'Experiment2ResultsStructs.zip' folder and 'MoreResultsStructs.zip' folder. All the data (files and folders) inside these 3 folders put together in 'ResultsStructs' folder (without the partition to 3 folders), and Locate the 'ResultsStructs' folder inside 'FreeViewing\\ExpMain\\Analysis\\AnalysisFolders'.
 
 
 
@@ -153,7 +173,7 @@ experiment 1 and 2 (this number should be given as a char)
 
 (c) condition:
 
-1 - main analysis  
+1 - main analysis
 
 3 - RttM check: control analysis see explanation above.
 
@@ -195,18 +215,17 @@ Run\_AnalyzeBehavior.m in the command window
 
 ###### More analyses:
 
-* Bayesian analysis: 
+* Bayesian analysis:
 
-Inside the folder BayesianAnalysis there are the Bayesian analysis calculations in JASP.
+Inside the folder BayesianAnalysis the Bayesian analysis calculations in JASP can be found.
 
 * GBC, GB-Bayes and Bayesian parameter estimation analyses:
 
 a. Open the R project AnalysisR.Rproj
 
-b. Running GBC and GBBayes tests on the behavioral data.
-Running the code: (a) Run GBC.R (b) then GBBayes.R (C) and finally GBCGBBayesScript.R
+b. GBC and GBBayes tests: Running the code: (a) Run GBC.R (b) then GBBayes.R (C) and finally GBCGBBayesScript.R
 
-c. Running Bayesian parameter estimation analysis. Running the code: Run BayesianParameterEstimationScript.R
+c. Bayesian parameter estimation analysis: Running the code: Run BayesianParameterEstimationScript.R
 
 
 
@@ -231,13 +250,13 @@ Conditions:(a) saveFlag- 1 save, 0 do not save
 
 **1.3.4.3.** **Run\_EyeMovementResultsExperiments.m** - create the object analysis, region analysis and emotional face attribute analysis results figures, and create tables summarizing effect sizes and p-values for all conditions except for the main condition.
 
-Conditions:(a) AnalysisType- 
+Conditions:(a) AnalysisType-
 
-1 main analysis 
+1 main analysis
 
-2 low level type 1 analysis 
+2 low level type 1 analysis
 
-3 RttM check analysis 
+3 RttM check analysis
 
 4 permutation check
 
@@ -360,7 +379,7 @@ Conditions:(a) saveFlag- 1 save, 0 do not save
 
 This code creates the high level region and low level region maps for the region analysis for all images.
 
-###### Location: 
+###### Location:
 
 FreeViewing\\ExpMain\\Analysis\\AnalysisCode\\ImageAnalysis
 
@@ -391,7 +410,7 @@ Peter, Break X Axis . MATLAB Central File Exchange (2024).
 https://www.mathworks.com/matlabcentral/fileexchange/42905-break-x-axis.
 
 **1.4.2.** **Itti\&Koch\_WalthersSaliencyToolbox\_L**
-Sailencytoolbox used to create low level regions for the region analysis in low level type 1 control analysis, based on Itti\&Koch's saliency model. Version 2.3 is used. 
+Sailencytoolbox used to create low level regions for the region analysis in low level type 1 control analysis, based on Itti\&Koch's saliency model. Version 2.3 is used.
 
 D. Walther, C. Koch, Modeling attention to salient proto-objects. Neural Networks 19,  1395–1407 (2006).
 
@@ -419,7 +438,7 @@ Inside the folder tutorial\_matlab I added the following codes (based on existin
 
 **1.4.5. Smiler**
 
-toolbox used to create low level regions for the region analysis in the main analysis, based on Itti\&Koch's saliency model. 
+toolbox used to create low level regions for the region analysis in the main analysis, based on Itti\&Koch's saliency model.
 
 C. Wloka, T. Kunić, I. Kotseruba, R. Fahimi, N. Frosst, N. D. B. Bruce, J. K. Tsotsos, SMILER: Saliency Model Implementation Library for Experimental Research. arXiv Prepr, doi: https://doi.org/10.48550/arXiv.1812.08848 (2018).
 
@@ -441,23 +460,31 @@ All analyses were run on Matlab 2018B
 
 ###### If you are downloading from OSF:
 
-Unzip the following folders:
+a. Download all folders inside 'ExpNoMondrian' folder:
 
-a.
+b. Unzip the following folders:
 
-b.
+1. 'Analysis.zip'
 
-&#x20;
+2\. 'Experiment.zip'
+
+3\. 'Raw Data' folder: Inside it unzip 'Behavioral.zip','DataPileups.zip' and 'EyeTracker.zip' folders. Locate the 'Raw Data' folder inside 'FreeViewing\\ExpNoMondrian'.
+
+4\. Unzip 'ResultsStructs' folder. Locate it in 'FreeViewing\\ExpNoMondrian\\Analysis\\AnalysisFolders'.
 
 
 
 ###### If you are downloading from GitHub:
 
-Download the following folders from OSF (from the ExpNoMondrian folder) (https:/osf.io/b5ntv/)
+a. Download the code from GitHub.
 
-a. Locate the Raw Data folder inside FreeViewing\\ExpNoMondrian
+b. Download from OSF (https:/osf.io/b5ntv/) from 'ExpNoMondrian' folder:
 
-b. Locate the ResultsStructs folder inside FreeViewing\\ExpNoMondrian\\Analysis\\AnalysisFolders\\
+1. 'Raw Data' folder: Inside it unzip 'Behavioral.zip','DataPileups.zip' and 'EyeTracker.zip' folders. Locate the 'Raw Data' folder inside 'FreeViewing\\ExpNoMondrian'.
+
+2\. Unzip 'ResultsStructs' folder. Locate it in 'FreeViewing\\ExpNoMondrian\\Analysis\\AnalysisFolders'.
+
+&#x20;
 
 
 
@@ -472,7 +499,7 @@ FreeViewing\\ExpNoMondrian\\Experiment\\RUN\_ME\\Code
 a. In Run\_FV\_CFS\_NM.m change parameters:
 DEBUG\_CODE=0; (1 run with debugging, 0 run without debugging)
 
-b. Run the code by running the function: Run\_FV\_CFS\_NM(1) in the command window. 
+b. Run the code by running the function: Run\_FV\_CFS\_NM(1) in the command window.
 
 ###### Comments:
 
