@@ -1,13 +1,14 @@
 ## GBC test implementation
 
 # Note that JAGS must be installed as a prerequisite.
-# Also, note that you must source the AwarenessTests.R script for the function to run
+# Note that you must source the TestingInfrastructure.R and AwarenessTests.R scripts for the function to run
+source(file.path('Common', 'TestingInfrastructure.R'))
 source(file.path('Common', 'AwarenessTests.R'))
 if (!require(BSDA)) {
-  stop("Package 'rjags' is required but not installed.")
+  stop("Package 'BSDA' is required but not installed.")
 }
 if (!require(dplyr)) {
-  stop("Package 'rjags' is required but not installed.")
+  stop("Package 'dplyr' is required but not installed.")
 }
 
 # Implemented by: Shaked Lublinsky and Itay Yaron
@@ -16,7 +17,7 @@ GBC <- function(R,N,chance = 0.5,alpha = 0.05, tail = 'right') {
   # Input
   # R: number of correct responses for each participant
   # N: number of trials for each participant
-  # chance: chance perfomance of task
+  # chance: chance performance of the task
   # alpha: alpha of statistical test 
   # tail: type of alternative hypothesis to evaluate 'both', 'right',
   # 'left'

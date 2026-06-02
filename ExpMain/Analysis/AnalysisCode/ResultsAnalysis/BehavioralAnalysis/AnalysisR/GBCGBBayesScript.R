@@ -33,7 +33,7 @@ res12GBBayesU=GBBayes(pooledData$R_U,pooledData$N_U,chance = 0.5,BF_threshold = 
                      theta_mu_prior = .55, theta_sig_prior = .1,
                      sigma_mu_prior = .025, sigma_sig_prior = .05,
                      n_chains = 2, burining_period = 1500, iterations_per_chain = 5000)
-res12GBCU=GBC(R12,N12,chance = 0.5,alpha = 0.05, tail = 'right')
+res12GBCU=GBC(pooledData$R_U,pooledData$N_U,chance = 0.5,alpha = 0.05, tail = 'right')
 averageAS=mean(pooledData$R_U/pooledData$N_U)
 stdAS=sd(pooledData$R_U/pooledData$N_U)
 
