@@ -13,10 +13,11 @@ set.seed(seed)
 ############################ Unconscious ############################ 
 ############################ Exp 1 
 res1GBBayesU=GBBayes(data1$R_U,data1$N_U,chance = 0.5,BF_threshold = 3,
-            AS_low_bound = .5,
-            theta_mu_prior = .55, theta_sig_prior = .1,
-            sigma_mu_prior = .025, sigma_sig_prior = .05,
-            n_chains = 2, burining_period = 1500, iterations_per_chain = 5000)
+                    AS_low_bound = .5,
+                    theta_mu_prior = .55, theta_sig_prior = .1,
+                    sigma_mu_prior = .025, sigma_sig_prior = .05,
+                    n_chains = 2, burining_period = 1500, iterations_per_chain = 5000,
+                    base_seed = seed)
 res1GBCU=GBC(data1$R_U,data1$N_U,chance = 0.5,alpha = 0.05, tail = 'right')
 
 ############################ Exp 2 
@@ -24,7 +25,8 @@ res2GBBayesU=GBBayes(data2$R_U,data2$N_U,chance = 0.5,BF_threshold = 3,
                     AS_low_bound = .5,
                     theta_mu_prior = .55, theta_sig_prior = .1,
                     sigma_mu_prior = .025, sigma_sig_prior = .05,
-                    n_chains = 2, burining_period = 1500, iterations_per_chain = 5000)
+                    n_chains = 2, burining_period = 1500, iterations_per_chain = 5000,
+                    base_seed = seed)
 res2GBCU=GBC(data2$R_U,data2$N_U,chance = 0.5,alpha = 0.05, tail = 'right')
 
 ############################ Exp 1&2 
@@ -32,7 +34,8 @@ res12GBBayesU=GBBayes(pooledData$R_U,pooledData$N_U,chance = 0.5,BF_threshold = 
                      AS_low_bound = .5,
                      theta_mu_prior = .55, theta_sig_prior = .1,
                      sigma_mu_prior = .025, sigma_sig_prior = .05,
-                     n_chains = 2, burining_period = 1500, iterations_per_chain = 5000)
+                     n_chains = 2, burining_period = 1500, iterations_per_chain = 5000,
+                     base_seed = seed)
 res12GBCU=GBC(pooledData$R_U,pooledData$N_U,chance = 0.5,alpha = 0.05, tail = 'right')
 averageAS=mean(pooledData$R_U/pooledData$N_U)
 stdAS=sd(pooledData$R_U/pooledData$N_U)
@@ -43,7 +46,8 @@ res1GBBayesC1=GBBayes(data1$R_C1,data1$N_C1,chance = 0.5,BF_threshold = 3,
                     AS_low_bound = .5,
                     theta_mu_prior = .55, theta_sig_prior = .1,
                     sigma_mu_prior = .025, sigma_sig_prior = .05,
-                    n_chains = 2, burining_period = 1500, iterations_per_chain = 5000)
+                    n_chains = 2, burining_period = 1500, iterations_per_chain = 5000,
+                    base_seed = seed)
 res1GBCC1=GBC(data1$R_C1,data1$N_C1,chance = 0.5,alpha = 0.05, tail = 'right')
 
 ############################ Exp 2
@@ -51,7 +55,8 @@ res2GBBayesC1=GBBayes(data2$R_C1,data2$N_C1,chance = 0.5,BF_threshold = 3,
                     AS_low_bound = .5,
                     theta_mu_prior = .55, theta_sig_prior = .1,
                     sigma_mu_prior = .025, sigma_sig_prior = .05,
-                    n_chains = 2, burining_period = 1500, iterations_per_chain = 5000)
+                    n_chains = 2, burining_period = 1500, iterations_per_chain = 5000,
+                    base_seed = seed)
 res2GBCC1=GBC(data2$R_C1,data2$N_C1,chance = 0.5,alpha = 0.05, tail = 'right')
 
 ############################ Exp 1&2 
@@ -59,7 +64,8 @@ res12GBBayesC1=GBBayes(pooledData$R_C1,pooledData$N_C1,chance = 0.5,BF_threshold
                       AS_low_bound = .5,
                       theta_mu_prior = .55, theta_sig_prior = .1,
                       sigma_mu_prior = .025, sigma_sig_prior = .05,
-                      n_chains = 2, burining_period = 1500, iterations_per_chain = 5000)
+                      n_chains = 2, burining_period = 1500, iterations_per_chain = 5000,
+                      base_seed = seed)
 res12GBCC1=GBC(pooledData$R_C1,pooledData$N_C1,chance = 0.5,alpha = 0.05, tail = 'right')
 averageAS=mean(pooledData$R_C1/pooledData$N_C1)
 stdAS=sd(pooledData$R_C1/pooledData$N_C1)
@@ -72,7 +78,8 @@ res1GBBayesC2=GBBayes(R,N,chance = 0.5,BF_threshold = 3,
                     AS_low_bound = .5,
                     theta_mu_prior = .55, theta_sig_prior = .1,
                     sigma_mu_prior = .025, sigma_sig_prior = .05,
-                    n_chains = 2, burining_period = 1500, iterations_per_chain = 5000)
+                    n_chains = 2, burining_period = 1500, iterations_per_chain = 5000,
+                    base_seed = seed)
 res1GBCC2=GBC(R,N,chance = 0.5,alpha = 0.05, tail = 'right')
 
 ############################ Exp 2 
@@ -82,7 +89,8 @@ res2GBBayesC2=GBBayes(R,N,chance = 0.5,BF_threshold = 3,
                     AS_low_bound = .5,
                     theta_mu_prior = .55, theta_sig_prior = .1,
                     sigma_mu_prior = .025, sigma_sig_prior = .05,
-                    n_chains = 2, burining_period = 1500, iterations_per_chain = 5000)
+                    n_chains = 2, burining_period = 1500, iterations_per_chain = 5000,
+                    base_seed = seed)
 res2GBCC2=GBC(R,N,chance = 0.5,alpha = 0.05, tail = 'right')
 
 ############################ Exp 1&2 
@@ -92,7 +100,8 @@ res12GBBayesC2=GBBayes(R,N,chance = 0.5,BF_threshold = 3,
                       AS_low_bound = .5,
                       theta_mu_prior = .55, theta_sig_prior = .1,
                       sigma_mu_prior = .025, sigma_sig_prior = .05,
-                      n_chains = 2, burining_period = 1500, iterations_per_chain = 5000)
+                      n_chains = 2, burining_period = 1500, iterations_per_chain = 5000,
+                      base_seed = seed)
 res12GBCC2=GBC(R,N,chance = 0.5,alpha = 0.05, tail = 'right')
 averageAS=mean(R/N)
 stdAS=sd(R/N)
