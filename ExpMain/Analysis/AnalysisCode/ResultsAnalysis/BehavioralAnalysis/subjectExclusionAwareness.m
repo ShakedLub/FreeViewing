@@ -105,6 +105,12 @@ R_C2=[Data.numTrialsCorrectC2];
 R_C2(ExcludedSubj)=[];
 numT_C2=[Data.numTrialsC2];
 numT_C2(ExcludedSubj)=[];
+%Exclude participants with 0 trials in C2 condition
+ExcSubj0trials=find(numT_C2==0);
+SR_C2(ExcSubj0trials)=[];
+d_C2(ExcSubj0trials)=[];
+R_C2(ExcSubj0trials)=[];
+numT_C2(ExcSubj0trials)=[];
 [Summary.h_AccuracyC2_ttest,Summary.p_AccuracyC2_ttest,~,Summary.stat_accuracyC2_ttest] = ttest(SR_C2,0.5,'Tail','right'); 
 [Summary.h_dPrimeC2_ttest,Summary.p_dPrimeC2_ttest,~,Summary.stat_dPrimeC2_ttest] = ttest(d_C2,0,'Tail','right');
 
