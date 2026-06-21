@@ -17,24 +17,24 @@ Paths.RainCloudPlot=[foldersPath,'\Code\RainCloudPlot\RainCloudPlots-master\tuto
 cd(codePath)
 
 %% load data
-load([dataPath,'\','dataPAS_Pilot1Final.mat']);
+load([dataPath,'\','dataPAS_Experiment1Final.mat']);
 dataPAS1=dataPAS;
 clear dataPAS 
-load([dataPath,'\','dataPAS_Pilot2Final.mat']);
+load([dataPath,'\','dataPAS_Experiment2Final.mat']);
 dataPAS2=dataPAS;
 clear dataPAS 
 
-load([dataPath,'\','Summary_Awareness_Pilot1Final.mat']);
+load([dataPath,'\','Summary_Awareness_Experiment1Final.mat']);
 SummaryResults1=Summary_Awareness;
 clear Summary_Awareness;
-load([dataPath,'\','Summary_Awareness_Pilot2Final.mat']);
+load([dataPath,'\','Summary_Awareness_Experiment2Final.mat']);
 SummaryResults2=Summary_Awareness;
 clear Summary_Awareness;
 
-load([dataPath,'\','Results_Awareness_Pilot1Final.mat']);
+load([dataPath,'\','Results_Awareness_Experiment1Final.mat']);
 Results1=Results_Awareness;
 clear Results_Awareness;
-load([dataPath,'\','Results_Awareness_Pilot2Final.mat']);
+load([dataPath,'\','Results_Awareness_Experiment2Final.mat']);
 Results2=Results_Awareness;
 clear Results_Awareness;
 
